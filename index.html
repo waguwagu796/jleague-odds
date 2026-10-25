@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{color-scheme:light}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}
-/* 내 팀 경기 프리뷰 */
+/* 応援チームの試合プレビュー */
 .my-preview { border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:12px; padding:16px; background:var(--surface); display:grid; gap:14px; }
 .my-preview-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
 .my-preview-title { margin:0; font-size:17px; }
@@ -25,7 +25,7 @@
 .my-preview-form .form { display:inline-flex; }
 .my-preview-note { color:var(--muted); font-size:12px; line-height:1.55; }
 @media(max-width:600px){ .my-preview { padding:13px; } .my-preview-team { font-size:16px; } .my-preview-prob { padding:8px; } .my-preview-prob b { font-size:16px; } }
-/* 대시보드: 기존 서비스의 데이터와 기능으로 구성하는 첫 화면 */
+/* ダッシュボード: 기존 서비스의 데이터와 기능으로 구성하는 첫 화면 */
 .dashboard-page { gap: 18px; }
 .dash-hero { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:22px; border:1px solid var(--line); border-radius:14px; background:linear-gradient(125deg,var(--surface),var(--bg)); }
 .dash-eyebrow { color:var(--accent); font-size:11px; font-weight:800; letter-spacing:.14em; }
@@ -64,19 +64,19 @@
 .dash-empty { padding:18px 0; color:var(--muted); }
 @media(max-width:760px){ .dash-grid { grid-template-columns:1fr; } .dash-team-stats { grid-template-columns:repeat(2,minmax(0,1fr)); } .dash-shortcuts { grid-template-columns:1fr; } .dash-shortcut { min-height:0; } .dash-hero { padding:17px; } }
 
-/* 구단별 팀 컬러: 팀명은 기본 글자색을 유지하고 옆의 작은 원으로 구단 색상을 표시 */
+/* 구단별 チーム 컬러: 팀명은 기본 글자색을 유지하고 옆의 작은 원으로 구단 색상을 表示 */
 .team-color-name { display: inline-flex; align-items: baseline; gap: 5px; color: inherit !important; -webkit-text-fill-color: currentColor !important; background: none !important; -webkit-background-clip: initial !important; background-clip: initial !important; }
 .team-color-name.tname { font-weight: 800; }
 .team-color-dot { display: inline-block; width: 8px; height: 8px; flex: 0 0 8px; align-self: center; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--fg) 18%, transparent); box-sizing: border-box; }
 </style>
 </head>
 <body class="app">
-<title>J LEAGUE INSIGHT</title>
+<title>Jリーグ・インサイト</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: 왼쪽 메뉴로 페이지 전환. 공통 헤더(기준일·리그) 아래 순위표·빅매치·분포·난이도·추이·검증·계산 방법 */
+/* Layout: 왼쪽 メニュー로 페이지 전환. 공통 헤더(基準일·리그) 아래 順位表·注目試合·분포·난이도·추이·검증·計算方法 */
 /* 색: J리그 느낌의 남색(메인) + 빨강(포인트), 바탕은 푸른 기가 도는 회색 */
 :root {
   --bg: #f3f5f9;
@@ -258,7 +258,7 @@ tr.detail td { white-space: normal; background: var(--bg); padding: 16px; }
 .progress b { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
 
 .chart svg { width: 100%; height: auto; display: block; }
-/* 추이 차트 툴팁: 차트 영역 안에서 가로 위치를 따라다닌다. 마우스 이벤트를 가로채지 않도록 pointer-events 없음 */
+/* 추이 차트 툴팁: 차트 영역 안에서 가로 位치를 따라다닌다. 마우스 이벤트를 가로채지 않도록 pointer-events 없음 */
 #chart { position: relative; }
 #chart svg { touch-action: pan-y; }   /* 휴대폰에서 세로 스크롤은 그대로 되고, 가로로 짚으면 툴팁이 따라온다 */
 .ctip { position: absolute; z-index: 5; pointer-events: none; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; box-shadow: 0 4px 14px rgba(0, 0, 0, .18); white-space: nowrap; display: grid; gap: 3px; }
@@ -268,7 +268,7 @@ tr.detail td { white-space: normal; background: var(--bg); padding: 16px; }
 .ctip .trow i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
 .ctip .trow span { flex: 1; }
 .ctip .trow em { font-style: normal; font-family: var(--font-data); font-weight: 700; }
-/* 추이 차트 팀 선택 칩: 선택되면 그래프 선 색과 같은 색 점·테두리를 보여준다 */
+/* 추이 차트 チーム 選択 칩: 선택되면 그래프 선 색과 같은 색 点·테두리를 보여준다 */
 .trend-range { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 12px; color: var(--muted); font-size: 13px; }
 .trend-range select { max-width: 100%; min-height: 36px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--fg); font: inherit; }
 .trend-teams { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
@@ -287,7 +287,7 @@ tr.detail td { white-space: normal; background: var(--bg); padding: 16px; }
 .kpi b { font-family: var(--font-data); font-size: 17px; font-weight: 500; }
 .ok { color: var(--win); font-weight: 700; }
 .bad { color: var(--loss); font-weight: 700; }
-/* 내 팀 */
+/* 応援チーム */
 .mysel { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
 .mysel select { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; max-width: 150px; }
 tbody tr.team.mine td, #whatif tr.mine td { background: color-mix(in srgb, var(--point) 8%, var(--surface)); }
@@ -295,7 +295,7 @@ tbody tr.team.mine td, #whatif tr.mine td { background: color-mix(in srgb, var(-
 .tcard.mine { box-shadow: 0 0 0 2px var(--point); }
 .sum.mine { border-color: var(--point); box-shadow: inset 0 3px 0 var(--point); }
 
-/* 빅매치·만약에 */
+/* 注目試合·もしも分析 */
 .panel h3.sub { margin: 6px 0 0; font-size: 15px; }
 .big { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; }
 .bigc { border: 1px solid var(--line); border-top: 3px solid var(--point); border-radius: 10px; padding: 12px 14px; display: grid; gap: 9px; align-content: start; background: var(--bg); min-width: 0; }
@@ -342,7 +342,7 @@ tbody tr.team.mine td, #whatif tr.mine td { background: color-mix(in srgb, var(-
 #whatif { display: grid; gap: 10px; }
 #whatif:empty { display: none; }
 
-/* 순위 분포 */
+/* 順位 분포 */
 .panel .heat { font-size: 12.5px; }
 .panel .heat th, .panel .heat td { padding: 6px 0; text-align: center; min-width: 36px; border-bottom: 1px solid var(--surface); }
 .panel .heat td.h { font-family: var(--font-data); }
@@ -352,7 +352,7 @@ tbody tr.team.mine td, #whatif tr.mine td { background: color-mix(in srgb, var(-
 .panel .heat tr.mine .tn { color: var(--point); }
 .panel .heat td.mode { padding: 6px 10px; font-family: var(--font-data); white-space: nowrap; }
 
-/* 일정 난이도 */
+/* 日程 난이도 */
 .sched { display: grid; gap: 10px; }
 .srow { display: grid; grid-template-columns: 24px minmax(110px, 1fr) minmax(0, 2fr) minmax(220px, 1.45fr); gap: 2px 12px; align-items: center; font-size: 13px; }
 .srow .rank { text-align: right; }
@@ -391,7 +391,7 @@ tbody tr.team.mine td, #whatif tr.mine td { background: color-mix(in srgb, var(-
   #mainBox { display: none; }
   .cards { display: grid; }
   h1 { font-size: 26px; }
-  /* 모바일: 사이트명과 메뉴 버튼을 하나의 상단 고정 헤더처럼 표시 */
+  /* 모바일: 사이트명과 メニュー 버튼을 하나의 상단 고정 헤더처럼 表示 */
   body.app::before {
     content: "";
     position: fixed;
@@ -461,7 +461,7 @@ tbody tr.team.mine td, #whatif tr.mine td { background: color-mix(in srgb, var(-
   .srow .opps { grid-column: 2; grid-row: 4; }
 }
 
-/* 최종 순위 분포: 모바일에서는 팀별 접이식 카드로 전환 */
+/* 最終順位分布: 모바일에서는 팀별 접이식 카드로 전환 */
 .dist-mobile { display: none; }
 .dist-mobile-hint { color: var(--muted); font-size: 12.5px; margin: 0 0 10px; }
 .dist-team { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin-bottom: 8px; overflow: hidden; }
@@ -488,7 +488,7 @@ tbody tr.team.mine td, #whatif tr.mine td { background: color-mix(in srgb, var(-
   .dist-mobile { display: block; }
 }
 
-/* 팀 비교 선택기: 기본 브라우저 드롭다운보다 강조된 카드형 UI */
+/* チーム 比較 선택기: 기본 브라우저 드롭다운보다 강조된 카드형 UI */
 .compare-pickers { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 12px; align-items: stretch; margin: 16px 0 20px; }
 .compare-pick-card { min-width: 0; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(145deg, var(--surface), var(--bg)); box-shadow: 0 4px 14px rgba(0,0,0,.045); transition: border-color .15s, box-shadow .15s; }
 .compare-pick-card:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent); }
@@ -501,7 +501,7 @@ tbody tr.team.mine td, #whatif tr.mine td { background: color-mix(in srgb, var(-
 .compare-vs-badge { align-self: center; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--muted); font-size: 11px; font-weight: 900; letter-spacing: .04em; }
 @media(max-width:600px) { .compare-pickers { grid-template-columns: minmax(0,1fr); gap: 8px; } .compare-pick-card { padding: 12px 13px; } .compare-vs-badge { width: 30px; height: 30px; margin: -2px auto; } }
 
-/* 로고 링크: 사이드바 로고와 상단 제목을 누르면 홈으로 */
+/* 로고 링크: 사이드바 로고와 상단 제목을 누르면 ホームへ */
 /* 사이드바 상단 헤더: 로고는 왼쪽, 접기 버튼은 같은 줄 오른쪽 */
 .lmb-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .lmb a.brand { flex: 1 1 auto; min-width: 0; display: block; padding: 2px 10px 4px; color: var(--accent); font-weight: 400; font-size: 20px; text-decoration: none; border-radius: 8px; }
@@ -513,7 +513,7 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
 @media (min-width: 961px) {
   body.app { transition: grid-template-columns .2s ease; }
   .lmb button.lmb-collapse { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 32px; height: 32px; padding: 0; font-size: 18px; line-height: 1; }
-  /* 접힌 상태: 좁은 레일만 남기고 로고·메뉴는 숨긴다 (접기 버튼은 남겨 다시 펼 수 있게) */
+  /* 접힌 상태: 좁은 레일만 남기고 로고·メニュー는 숨긴다 (접기 버튼은 남겨 다시 펼 수 있게) */
   body.app.lmb-collapsed { grid-template-columns: 56px minmax(0, 1fr); }
   body.lmb-collapsed .lmb { padding-inline: 8px; overflow: hidden; }
   body.lmb-collapsed .lmb .brand, body.lmb-collapsed .lmb nav { display: none; }
@@ -522,7 +522,7 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 
-/* 비공식 서비스·면책 안내 */
+/* 비공식 서비스·면책 案内 */
 .site-disclaimer { margin: 24px 0 18px; padding: 14px 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.7; }
 .site-disclaimer summary { cursor: pointer; color: var(--fg); font-size: 12px; font-weight: 700; }
 .site-disclaimer-content { margin-top: 9px; }
@@ -533,42 +533,42 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
 
 </style>
 
-<button type="button" class="nav-scrim" id="navScrim" aria-label="메뉴 닫기"></button>
-<aside class="lmb" id="lmb" aria-label="페이지 메뉴">
+<button type="button" class="nav-scrim" id="navScrim" aria-label="メニューを閉じる"></button>
+<aside class="lmb" id="lmb" aria-label="ページメニュー">
   <div class="lmb-head">
-    <a class="brand" href="./" title="홈으로">J LEAGUE INSIGHT</a>
-    <button type="button" class="ghost lmb-collapse" id="lmbCollapse" aria-label="메뉴 접기" title="메뉴 접기" aria-expanded="true">«</button>
+    <a class="brand" href="./" title="ホームへ">Jリーグ・インサイト</a>
+    <button type="button" class="ghost lmb-collapse" id="lmbCollapse" aria-label="メニューを折りたたむ" title="メニューを折りたたむ" aria-expanded="true">«</button>
   </div>
   <nav>
-    <a href="#dashboard">대시보드</a>
-    <a href="#standings">순위표</a>
-    <a href="#cheer">응원 작전실</a>
-    <a href="#compare">팀 간 상대 전적 비교</a>
-    <a href="#round">라운드 프리뷰·만약에</a>
-    <a href="#dist">최종 순위 분포</a>
-    <a href="#sched">남은 일정 난이도</a>
-    <a href="#trend">확률 추이</a>
-    <a href="#backtest">예측 정확도</a>
-    <a href="#method">계산 방법</a>
+    <a href="#dashboard">ダッシュボード</a>
+    <a href="#standings">順位表</a>
+    <a href="#cheer">応援作戦室</a>
+    <a href="#compare">チーム間の対戦成績比較</a>
+    <a href="#round">節プレビュー・もしも分析</a>
+    <a href="#dist">最終順位分布</a>
+    <a href="#sched">残り日程の難易度</a>
+    <a href="#trend">確率の推移</a>
+    <a href="#backtest">予測精度</a>
+    <a href="#method">計算方法</a>
   </nav>
 </aside>
 <div class="wrap">
   <div class="top">
     <div style="display:grid; gap:6px">
-      <h1><a class="home-link" href="./" title="홈으로">J LEAGUE INSIGHT</a></h1>
+      <h1><a class="home-link" href="./" title="ホームへ">Jリーグ・インサイト</a></h1>
       <div class="meta">
-        <span>데이터 기준 <b id="asOf">불러오는 중</b> · 남은 경기를 <b id="nsim">50,000</b>번 시뮬레이션 <span id="seedNote"></span></span>
+        <span>データ基準日 <b id="asOf">読み込み中</b> ・残り試合を <b id="nsim">50,000</b>回シミュレーション <span id="seedNote"></span></span>
         <span id="srcLine"></span>
       </div>
     </div>
     <div class="controls">
-      <button type="button" class="ghost nav-toggle" id="navToggle" aria-label="메뉴 열기" title="메뉴" aria-expanded="false" aria-controls="lmb">☰</button>
-      <div class="tabs" role="group" aria-label="리그 선택">
-        <button type="button" id="tabK1" aria-pressed="true">J1 리그</button>
-        <button type="button" id="tabK2" aria-pressed="false">J2 리그</button>
+      <button type="button" class="ghost nav-toggle" id="navToggle" aria-label="メニューを開く" title="メニュー" aria-expanded="false" aria-controls="lmb">☰</button>
+      <div class="tabs" role="group" aria-label="リーグ選択">
+        <button type="button" id="tabK1" aria-pressed="true">J1リーグ</button>
+        <button type="button" id="tabK2" aria-pressed="false">J2リーグ</button>
       </div>
-      <label class="mysel">내 팀 <select id="myTeam" aria-label="내 팀 선택"><option value="">선택 안 함</option></select></label>
-      <button type="button" class="ghost" id="rerun" disabled>새 시드로 다시 계산</button>
+      <label class="mysel">応援チーム <select id="myTeam" aria-label="応援チームを選択"><option value="">未選択</option></select></label>
+      <button type="button" class="ghost" id="rerun" disabled>新しいシードで再計算</button>
     </div>
   </div>
   <div class="progress" id="progress" hidden><b id="progressBar"></b></div>
@@ -576,21 +576,21 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
   <div class="notice" id="notice" hidden></div>
   <div class="page dashboard-page" id="page-dashboard" hidden>
     <section class="dash-hero">
-      <div><div class="dash-eyebrow">J LEAGUE INSIGHT / DASHBOARD</div><h2 class="dash-title">J리그 현황을 한눈에</h2><p class="dash-desc" id="dashIntro">리그 주요 지표와 경기 정보를 확인하세요.</p></div>
-      <div class="dash-actions"><button type="button" class="ghost" data-go-page="standings">전체 순위표</button><button type="button" class="primary" data-go-page="round">라운드 프리뷰</button></div>
+      <div><div class="dash-eyebrow">Jリーグ・インサイト / ダッシュボード</div><h2 class="dash-title">Jリーグの状況を一覧で確認</h2><p class="dash-desc" id="dashIntro">リーグの主な指標と試合情報を確認できます。</p></div>
+      <div class="dash-actions"><button type="button" class="ghost" data-go-page="standings">全順位表</button><button type="button" class="primary" data-go-page="round">節プレビュー</button></div>
     </section>
     <div class="dash-grid">
-      <section class="dash-panel"><div class="dash-panel-head"><h2 id="dashTeamHeading">응원 팀</h2><button type="button" id="dashTeamDetailBtn" class="dash-link" data-team-page="" hidden>팀 상세 보기 →</button></div><div id="dashTeam"><p class="dash-empty">데이터를 불러오는 중입니다.</p></div></section>
-      <section class="dash-panel"><div class="dash-panel-head"><h2>가장 가까운 경기</h2><button type="button" class="dash-link" id="dashFocusMatch" data-focus-match="">해당 경기 분석 →</button></div><div id="dashNext"><p class="dash-empty">경기 정보를 불러오는 중입니다.</p></div></section>
+      <section class="dash-panel"><div class="dash-panel-head"><h2 id="dashTeamHeading">応援チーム</h2><button type="button" id="dashTeamDetailBtn" class="dash-link" data-team-page="" hidden>チーム詳細を見る →</button></div><div id="dashTeam"><p class="dash-empty">データを読み込んでいます。</p></div></section>
+      <section class="dash-panel"><div class="dash-panel-head"><h2>次の試合</h2><button type="button" class="dash-link" id="dashFocusMatch" data-focus-match="">試合分析を見る →</button></div><div id="dashNext"><p class="dash-empty">試合情報を読み込んでいます。</p></div></section>
     </div>
-    <section class="dash-panel"><div class="dash-panel-head"><h2>리그 순위 미리보기</h2><button type="button" class="dash-link" data-go-page="standings">전체 순위표 →</button></div><div id="dashStandings" class="dash-table"><p class="dash-empty">순위 정보를 불러오는 중입니다.</p></div></section>
-    <section><div class="dash-panel-head"><h2>바로가기</h2><span class="meta">분석 기능으로 바로 이동</span></div><div class="dash-shortcuts">
-      <button type="button" class="dash-shortcut" data-go-page="cheer"><strong>응원 작전실</strong><span>내 팀을 기준으로 이번 라운드에서 응원할 결과와 경우의 수를 살펴봅니다.</span></button>
-      <button type="button" class="dash-shortcut" data-go-page="compare"><strong>팀 간 상대 전적 비교</strong><span>두 팀의 시즌 성적과 이번 시즌 맞대결 기록을 비교합니다.</span></button>
-      <button type="button" class="dash-shortcut" data-go-page="round"><strong>라운드 프리뷰 · 만약에</strong><span>라운드 전체 경기 전망을 확인하고, 경기 결과에 따른 순위 변화를 계산합니다.</span></button>
-      <button type="button" class="dash-shortcut" data-go-page="dist"><strong>최종 순위 분포</strong><span>시즌 종료 시 각 팀이 순위별로 마칠 확률을 확인합니다.</span></button>
-      <button type="button" class="dash-shortcut" data-go-page="sched"><strong>남은 일정 난이도</strong><span>각 팀의 남은 경기 난이도와 상대 전력, 홈·원정 조건을 비교합니다.</span></button>
-      <button type="button" class="dash-shortcut" data-go-page="trend"><strong>확률 추이</strong><span>라운드별 시즌 전망과 팀별 확률이 어떻게 변했는지 살펴봅니다.</span></button>
+    <section class="dash-panel"><div class="dash-panel-head"><h2>リーグ順位プレビュー</h2><button type="button" class="dash-link" data-go-page="standings">全順位表 →</button></div><div id="dashStandings" class="dash-table"><p class="dash-empty">順位情報を読み込んでいます。</p></div></section>
+    <section><div class="dash-panel-head"><h2>ショートカット</h2><span class="meta">分析機能へ移動</span></div><div class="dash-shortcuts">
+      <button type="button" class="dash-shortcut" data-go-page="cheer"><strong>応援作戦室</strong><span>応援チームを中心に、今節で応援したい結果や展開を確認します。</span></button>
+      <button type="button" class="dash-shortcut" data-go-page="compare"><strong>チーム間の対戦成績比較</strong><span>両チームのシーズン成績と今季の直接対決を比較します。</span></button>
+      <button type="button" class="dash-shortcut" data-go-page="round"><strong>節プレビュー · もしも分析</strong><span>今節の全試合を予測し、結果による順位の変化を計算します。</span></button>
+      <button type="button" class="dash-shortcut" data-go-page="dist"><strong>最終順位分布</strong><span>シーズン終了時に各チームが各順位で終える確率を確認します。</span></button>
+      <button type="button" class="dash-shortcut" data-go-page="sched"><strong>残り日程の難易度</strong><span>各チームの残り試合の難易度、相手の強さ、ホーム・アウェイ条件を比較します。</span></button>
+      <button type="button" class="dash-shortcut" data-go-page="trend"><strong>確率の推移</strong><span>節ごとにシーズン予測と各チームの確率がどう変化したかを確認します。</span></button>
     </div></section>
   </div>
 
@@ -600,10 +600,10 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
   <div class="tablebox" id="mainBox">
     <table id="main-table">
       <thead id="thead"></thead>
-      <tbody id="tbody"><tr><td class="empty" colspan="16">순위와 일정 데이터를 불러오는 중입니다. 매일 아침 자동으로 최신 데이터가 채워집니다.</td></tr></tbody>
+      <tbody id="tbody"><tr><td class="empty" colspan="16">順位と日程データを読み込んでいます。 データは毎日自動で更新されます。</td></tr></tbody>
     </table>
   </div>
-  <div class="cards" id="cards"><p class="empty">순위와 일정 데이터를 불러오는 중입니다.</p></div>
+  <div class="cards" id="cards"><p class="empty">順位と日程データを読み込んでいます。</p></div>
   <div class="legend" id="legend"></div>
   </div>
 
@@ -614,21 +614,21 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
   <section class="panel" id="roundPanel">
     <section class="my-preview" id="myPreview" aria-live="polite">
       <div class="my-preview-head">
-        <div><h2 class="my-preview-title">내 팀 경기 프리뷰</h2><div class="my-preview-note" id="myPreviewIntro">상단에서 응원 팀을 설정하면 다음 경기 분석을 볼 수 있습니다.</div></div>
+        <div><h2 class="my-preview-title">応援チームの試合プレビュー</h2><div class="my-preview-note" id="myPreviewIntro">上部で応援チームを設定すると、次の試合分析を確認できます。</div></div>
         <span class="my-preview-meta" id="myPreviewRank"></span>
       </div>
-      <div id="myPreviewBody"><p class="empty">내 팀을 선택해 주세요.</p></div>
+      <div id="myPreviewBody"><p class="empty">応援チームを選択してください。</p></div>
     </section>
     <div class="panel-head">
-      <h2 id="roundTitle">이번 라운드 프리뷰</h2>
+      <h2 id="roundTitle">今節のプレビュー</h2>
       <span class="meta" id="roundMeta"></span>
     </div>
     <div class="big" id="bigMatches"></div>
-    <h3 class="sub">만약에 — 경기 결과를 골라 다시 계산</h3>
+    <h3 class="sub">もしも分析・試合結果を選んで再計算</h3>
     <div class="mlist" id="matchList"></div>
     <div class="actions">
-      <button type="button" class="primary" id="whatifRun" disabled>고른 결과로 다시 계산</button>
-      <button type="button" class="ghost" id="whatifClear" disabled>선택 초기화</button>
+      <button type="button" class="primary" id="whatifRun" disabled>選択した結果で再計算</button>
+      <button type="button" class="ghost" id="whatifClear" disabled>選択をリセット</button>
       <span class="meta" id="whatifNote"></span>
     </div>
     <div id="whatif"></div>
@@ -637,14 +637,14 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
 
   <div class="page" id="page-dist" hidden>
   <section class="panel">
-    <div class="panel-head"><h2>최종 순위 분포</h2><span class="meta">시즌을 몇 위로 마칠지, 순위별 확률(%)</span></div>
+    <div class="panel-head"><h2>最終順位分布</h2><span class="meta">シーズン終了時の順位別確率（%）</span></div>
     <div id="dist"></div>
   </section>
   </div>
 
   <div class="page" id="page-sched" hidden>
   <section class="panel">
-    <div class="panel-head"><h2>남은 일정 난이도</h2><span class="meta">어려운 일정부터</span></div>
+    <div class="panel-head"><h2>残り日程の難易度</h2><span class="meta">難しい日程順</span></div>
     <div id="sched"></div>
   </section>
   </div>
@@ -652,14 +652,14 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
   <div class="page" id="page-trend" hidden>
   <section class="panel chart">
     <div class="panel-head">
-      <h2>확률 추이</h2>
-      <div class="tabs small" role="group" aria-label="추이 지표" id="metricTabs"></div>
+      <h2>確率の推移</h2>
+      <div class="tabs small" role="group" aria-label="推移指標" id="metricTabs"></div>
     </div>
     <div class="trend-range">
-      <label for="trendStartRound">시작 라운드</label>
-      <select id="trendStartRound" aria-label="확률 추이 시작 라운드"></select>
+      <label for="trendStartRound">開始節</label>
+      <select id="trendStartRound" aria-label="確率推移の開始節"></select>
     </div>
-    <div class="trend-teams" id="trendTeams" role="group" aria-label="추이에 표시할 팀"></div>
+    <div class="trend-teams" id="trendTeams" role="group" aria-label="推移グラフに表示するチーム"></div>
     <div id="chart"></div>
   </section>
   </div>
@@ -667,61 +667,61 @@ h1 a.home-link:focus-visible, .lmb a.brand:focus-visible { outline: 2px solid va
   <div class="page" id="page-backtest" hidden>
   <section class="panel">
     <div class="panel-head">
-      <h2>예측 정확도</h2>
-      <span class="meta" id="btStatus">검증 계산 대기 중</span>
+      <h2>予測精度</h2>
+      <span class="meta" id="btStatus">検証計算待ち</span>
     </div>
-    <div id="backtest"><p>지난 시즌 데이터로 검증하는 중입니다.</p></div>
+    <div id="backtest"><p>過去シーズンのデータを検証しています。</p></div>
   </section>
   </div>
 
   <div class="page" id="page-method" hidden>
   <section class="panel">
-    <h2>계산 방법</h2>
+    <h2>計算方法</h2>
     <ul>
-      <li>매일 아침 자동 작업이 J.League Data Site에서 시즌 전체 경기 결과와 남은 일정을 받아 저장합니다. 이 페이지는 열 때마다 저장된 데이터로 남은 경기를 직접 시뮬레이션합니다.</li>
-      <li><b>팀 전력</b>: 득점 기대값을 "리그 평균 × 홈·원정 배율 × 내 공격력 × 상대 수비력"으로 보고, 시즌 전체 경기 결과에 가장 잘 맞는 공격력·수비력을 반복 계산으로 찾습니다. 강팀을 상대로 넣은 골은 더 높게, 약팀을 상대로 넣은 골은 더 낮게 평가됩니다. 오래된 경기일수록 가중치가 줄어(180일마다 절반) 최근 흐름이 더 크게 반영됩니다. 홈·원정 배율도 그 시즌 리그의 실제 홈·원정 득점 비율로 정합니다.</li>
-      <li><b>무승부 보정</b>: 두 팀의 골 수를 따로 뽑으면 무승부가 실제보다 적게 나옵니다. Dixon-Coles 방식으로 0-0, 1-1 같은 저득점 무승부 확률을 높이고, 보정 정도는 그 시즌 실제 무승부 수에 맞춥니다.</li>
-      <li><b>불확실성</b>: 시뮬레이션마다 팀 전력을 추정 오차만큼 흔듭니다. 근거가 된 골 수가 적은 팀일수록 더 크게 흔들립니다.</li>
-      <li><b>순위 결정</b>: 승점 → 다득점 → 득실차 → 다승 → 승자승(동률 팀끼리의 승점) 순서로 가리고, 그래도 같으면 추첨합니다. 실제 규정의 벌점 기준은 데이터가 없어 추첨으로 대신합니다.</li>
-      <li><b>J1 리그</b>: 2026/27 시즌은 J1·J2 모두 20개 팀이 38경기 더블 라운드 로빈으로 치릅니다. J1 하위 3팀(18~20위)은 J2로 자동 강등됩니다. J2 1·2위는 자동 승격하고, 3~6위의 플레이오프 우승팀이 추가 승격합니다. 클럽 라이선스 예외는 현재 모델에 반영하지 않았습니다.</li>
-      <li><b>J2 리그</b>: 1·2위 자동 승격, 3~6위가 단판 플레이오프를 치릅니다(3위-6위, 4위-5위 준결승 후 결승). 무승부면 정규리그 순위가 높은 팀이 진출합니다. 공식 규정상 라이선스 예외가 있으나 현재 시뮬레이션에는 반영하지 않았습니다.</li>
+      <li>毎朝の自動処理でJリーグ公式データサイトからシーズン全試合の結果と残り日程を取得します。このページでは保存されたデータを使い、残り試合をシミュレーションします。</li>
+      <li><b>チーム戦力</b>: 得点期待値を "リーグ平均 × ホーム・アウェイ係数 × 自チームの攻撃力 × 相手の守備力"として、シーズン全試合の結果に合う攻撃力・守備力を反復計算で推定します。強豪相手の得点は高く、下位チーム相手の得点は低く評価します。古い試合ほど重みを下げ（180日で半減）、直近の状態を強く反映します。ホーム・アウェイ係数も当該シーズンの得点比から算出します。</li>
+      <li><b>引き分け補正</b>: 両チームの得点を別々に抽選すると、実際より引き分けが少なくなります。Dixon-Coles方式で0-0や1-1など低得点の引き分け確率を調整し、補正量は実際の引き分け数に合わせます。</li>
+      <li><b>不確実性</b>: 各シミュレーションで推定誤差に応じてチーム戦力を変動させます。根拠となる得点が少ないチームほど変動幅が大きくなります。</li>
+      <li><b>順位決定</b>: 勝ち点 → 得失点差 → 総得点 → 当該チーム間の成績の順で判定し、なお同じ場合は抽選とします。フェアプレーポイントのデータは含まれていません。</li>
+      <li><b>J1リーグ</b>: 2026/27シーズンはJ1・J2ともに20チームが参加し、38試合のホーム＆アウェイ方式で行われます。 J1の下位3チーム（18～20位）はJ2へ自動降格します。 J2の1・2位は自動昇格し、3～6位による昇格プレーオフの優勝チームも昇格します。 クラブライセンスによる例外は、現時点ではモデルに反映していません。</li>
+      <li><b>J2リーグ</b>: 1・2位は自動昇格し、3～6位は一発勝負のプレーオフ（3位対6位、4位対5位の準決勝後に決勝）を戦います。 引き分けの場合はリーグ戦の順位が上のチームが勝ち進みます。 公式規則にはライセンスによる例外がありますが、現在のシミュレーションには反映していません。</li>
       
-      <li><b>남은 승점</b>: "우승까지", "자동승격까지", "PO권까지", "잔류까지"는 다른 팀 결과와 상관없이 그 목표를 확정하려면 앞으로 더 따야 하는 승점입니다. 경쟁 팀이 남은 경기를 모두 이긴다고 가정하고, 승점이 같아 다득점으로 갈리는 경우를 피하도록 1점을 더 잡았습니다. "자력 불가"는 남은 경기를 다 이겨도 경쟁 팀이 승점을 잃어야 한다는 뜻입니다.</li>
-      <li><b>확정·불가</b>: 남은 경기를 모두 이기거나 모두 지는 경우까지 따져 수학적으로 결정된 경우에만 표시합니다. 결정되지 않았으면 아무리 높아도 ">99.9%", 아무리 낮아도 "&lt;0.1%"로 표시합니다.</li>
-      <li><b>빅매치</b>: 50,000번 시뮬레이션을 다음 라운드 각 경기의 결과(홈 승·무·원정 승)별로 나눠 셉니다. 결과에 따라 어떤 팀의 우승·승격·잔류 확률이 가장 크게 달라지는 경기를 빅매치로 고르고, 경기 옆 승·무·패 확률도 같은 시뮬레이션에서 나온 값입니다.</li>
-      <li><b>만약에</b>: 고른 경기는 그 결과가 나올 때까지 점수를 다시 뽑아(점수는 모델이 정함) 같은 시드로 50,000번 다시 계산합니다. "확정·불가"는 고른 결과를 1-0, 0-0, 0-1로 넣고 수학적으로 판정합니다.</li>
-      <li><b>남은 일정 난이도</b>: 리그 평균 전력 팀이 그 팀의 남은 경기를 대신 치른다면 경기당 얻을 기대 승점입니다. 상대의 공격력·수비력과 홈·원정을 반영하고, 낮을수록 어려운 일정입니다.</li>
-      <li><b>내 팀</b>: 고른 팀은 이 브라우저에만 저장되고, 표·카드·그래프·빅매치에서 강조됩니다.</li>
-      <li><b>오차</b>: 50,000번 시뮬레이션의 95% 오차 범위는 어느 확률이든 ±0.5%p 이내입니다(숫자에 마우스를 올리면 보입니다). 같은 데이터에서는 같은 시드를 써서 열 때마다 같은 숫자가 나옵니다.</li>
-      <li>재미로 보는 추정치입니다. 실제 결과와 다를 수 있습니다.</li>
+      <li><b>必要勝ち点</b>: 「優勝確定まで」「自動昇格確定まで」「プレーオフ進出確定まで」「残留確定まで」は、他チームの結果に関わらず目標を確定するために必要な勝ち点です。他チームが残り試合にすべて勝つと仮定し、勝ち点が並んで総得点で決着する可能性を避けるため、さらに1点を加えています。「自力では不可能」は、残り試合に全勝しても他チームが勝ち点を失う必要があることを意味します。</li>
+      <li><b>確定・可能性なし</b>: 残り試合の全勝・全敗も考慮し、数学的に確定した場合のみ表示します。未確定の場合は、99.9%を超えても「>99.9%」、0.1%未満でも「<0.1%」と表示します。</li>
+      <li><b>注目試合</b>: 50,000回のシミュレーションを、次節の各試合結果（ホーム勝利・引き分け・アウェイ勝利）ごとに集計します。結果によって優勝・昇格・残留確率が最も変わる試合を注目試合として表示します。試合横の勝敗確率も同じシミュレーションから算出しています。</li>
+      <li><b>もしも分析</b>: 選んだ結果が出るまでスコアを抽選し、同じシードで50,000回再計算します。「確定・可能性なし」は選択結果を1-0、0-0、0-1として数学的に判定します。</li>
+      <li><b>残り日程の難易度</b>: リーグ平均の戦力のチームが残り試合を代わりに戦った場合の、1試合あたりの期待勝ち点です。相手の攻守力とホーム・アウェイを考慮し、数値が低いほど厳しい日程です。</li>
+      <li><b>応援チーム</b>: 選択したチームはこのブラウザーにのみ保存され、表・カード・グラフ・注目試合で強調されます。</li>
+      <li><b>誤差</b>: 50,000回シミュレーションでの95%誤差範囲は、いずれの確率も±0.5ポイント以内です（数値にカーソルを合わせると表示）。同じデータなら同じシードを使うため、毎回同じ数値になります。</li>
+      <li>参考用の推定値です。 実際の結果と異なる場合があります。</li>
     </ul>
   </section>
   </div>
 
-  <footer class="site-disclaimer" aria-label="서비스 안내">
-    <p class="site-disclaimer-notice"><strong>비공식 팬메이드 서비스</strong> · 일본프로축구리그(J.LEAGUE) 및 각 구단과 공식 제휴 관계가 없습니다. 예측 결과는 참고용이며 실제 결과를 보장하지 않습니다.</p>
+  <footer class="site-disclaimer" aria-label="サービス案内">
+    <p class="site-disclaimer-notice"><strong>非公式のファンメイドサービス</strong>です。日本プロサッカーリーグ（J.LEAGUE）および各クラブとの公式な提携関係はありません。予測は参考情報であり、実際の結果を保証するものではありません。</p>
     <details>
-      <summary>서비스 안내 및 면책 사항 자세히 보기</summary>
+      <summary>サービス案内・免責事項を詳しく見る</summary>
       <div class="site-disclaimer-content">
-        <p>본 사이트는 J리그 팬을 위한 비공식 팬메이드 서비스이며, 일본프로축구리그(J.LEAGUE) 및 각 구단과 공식적인 제휴·협력 관계가 없습니다.</p>
-        <p>제공되는 확률 및 순위 예측은 자체 계산에 따른 참고용 정보이며, 실제 경기 결과나 최종 순위를 보장하지 않습니다. 데이터의 정확성·완전성·최신성을 보장하지 않으므로 중요한 정보는 공식 자료를 통해 확인해 주세요.</p>
-        <p>데이터·이미지 등 외부 자료를 이용할 때는 각 자료의 출처와 이용 조건을 확인해야 합니다. 이 안내는 자료의 이용 허락을 의미하지 않으며, 저작권·상표권 등 관련 권리의 적용을 배제하거나 법적 책임을 면제하는 보증이 아닙니다.</p>
-        <p>J리그 및 각 구단과 관련된 명칭·상표 등은 해당 권리자에게 권리가 있습니다. 본 사이트는 공식 서비스로 오인되지 않도록 운영되며, 관련 권리자의 공식 서비스가 아닙니다.</p>
+        <p>本サイトはJリーグファン向けの非公式ファンメイドサービスであり、日本プロサッカーリーグ（J.LEAGUE）および各クラブとの公式な提携・協力関係はありません。</p>
+        <p>表示される確率や順位予測は独自計算による参考情報であり、実際の試合結果や最終順位を保証するものではありません。 データの正確性・完全性・最新性は保証されません。重要な情報は公式資料でご確認ください。</p>
+        <p>データ・画像など外部資料を利用する場合は、それぞれの出典と利用条件をご確認ください。 この案内は資料の利用許諾を意味せず、著作権・商標権などの権利を排除したり、法的責任を免除したりするものではありません。</p>
+        <p>Jリーグおよび各クラブに関する名称・商標などの権利は、それぞれの権利者に帰属します。 本サイトは公式サービスと誤認されないよう運営しており、各権利者の公式サービスではありません。</p>
       </div>
     </details>
   </footer>
 </div>
 
 <script type="text/plain" id="engine-src">
-// J리그 확률 엔진. 페이지(kleague-odds.html)의 <script id="engine-src">에 그대로 들어간다.
+// J리그 確率 엔진. 페이지(kleague-odds.html)의 <script id="engine-src">에 그대로 들어간다.
 // 이 파일을 고친 뒤에는 build.py로 페이지에 다시 넣는다.
 
-// halfLife·prior는 2025·2026시즌 J1 리그·2 742경기 백테스트(경기 전 데이터만으로 예측)에서 고른 값.
-// 확률은 탐색적 추정치이며, 일본 리그 시즌 단위 검증 데이터가 제한적이다.
-// halfLife 180~365일은 차이가 0.0001 이내라 최근 흐름을 조금 더 보는 180을 골랐다.
+// halfLife·prior는 2025·2026シーズン J1リーグ·2 742試合 백테스트(試合 전 데이터만으로 予測)에서 고른 값.
+// 확률은 탐색적 추정치이며, 일본 리그 シーズン 단位 검증 데이터가 제한적이다.
+// halfLife 180~365일은 차이가 0.0001 이내라 直近 흐름을 조금 더 보는 180을 골랐다.
 const PARAMS = {
-  halfLife: 180,      // 경기 가중치가 절반이 되는 기간(일). 최근 경기를 더 크게 본다
-  prior: 8,           // 리그 평균 쪽으로 당기는 가상 경기 수
+  halfLife: 180,      // 試合 가중치가 절반이 되는 기간(일). 直近 경기를 더 크게 본다
+  prior: 8,           // 리그 平均 쪽으로 당기는 가상 試合数
   injuryPenalty: 0.03,
   injuryCap: 0.12,
 };
@@ -741,10 +741,10 @@ function poissonDraw(l, rnd) { const L = Math.exp(-l); let k = 0, p = 1; do { k+
 function gauss(rnd) { let u = 0, v = 0; while (!u) u = rnd(); while (!v) v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
 function pois(k, l) { let p = Math.exp(-l); for (let i = 1; i <= k; i++) p *= l / i; return p; }
 
-/* ---------- 전력 추정 ----------
-   득점 기대값 = 리그 평균 × 홈/원정 배율 × 내 공격력 × 상대 수비력.
-   공격력·수비력은 상대 전력을 감안해 반복 계산으로 맞추고(강팀 상대로 넣은 골은 더 높게 평가),
-   경기마다 오래될수록 가중치를 줄여 최근 흐름을 반영한다. */
+/* ---------- 戦力 추정 ----------
+   得点 기대값 = 리그 平均 × ホーム/アウェイ 배율 × 내 攻撃力 × 상대 守備力.
+   攻撃力·守備力은 상대 전력을 감안해 반복 계산으로 맞추고(강팀 상대로 넣은 골은 더 높게 평가),
+   경기마다 오래될수록 가중치를 줄여 直近 흐름을 반영한다. */
 function fitModel(teams, matches, asOf, P, injuries) {
   const ref = toMs(asOf);
   const ms = matches.map(m => ({ h: m[2], a: m[3], hs: m[4], as: m[5], w: Math.pow(0.5, Math.max(0, (ref - toMs(m[0])) / DAY) / P.halfLife) }));
@@ -774,7 +774,7 @@ function fitModel(teams, matches, asOf, P, injuries) {
     for (const m of ms) { num += m.w * (m.hs + m.as); den += m.w * (home * R[m.h].att * R[m.a].def + away * R[m.a].att * R[m.h].def); }
     if (den > 0) mu = num / den;
   }
-  // 전력 추정의 불확실성(로그 척도 표준오차): 근거가 된 골 수가 적을수록 크다
+  // 戦力 추정의 不確実性(로그 척도 표준誤差): 근거가 된 골 수가 적을수록 크다
   const k = P.prior * mu;
   teams.forEach(t => {
     R[t].seA = 1 / Math.sqrt(nA[t] + k);
@@ -783,7 +783,7 @@ function fitModel(teams, matches, asOf, P, injuries) {
     R[t].inj = inj;
     if (inj) R[t].att *= 1 - Math.min(P.injuryCap, inj * P.injuryPenalty);
   });
-  // 무승부 보정 계수(Dixon-Coles rho): 모델의 무승부 수가 실제 무승부 수와 같아지도록 맞춘다
+  // 引き分け補正 계수(Dixon-Coles rho): 모델의 引き分け 수가 実際 引き分け 수와 같아지도록 맞춘다
   let rho = 0;
   if (ms.length >= 30) {
     const pairs = ms.map(m => [mu * home * R[m.h].att * R[m.a].def, mu * away * R[m.a].att * R[m.h].def]);
@@ -823,7 +823,7 @@ function matchProbs(l, m, rho) {
   const s = pH + pD + pA;
   return [pH / s, pD / s, pA / s];
 }
-// Dixon-Coles 분포에서 점수 뽑기 (독립 포아송 + 기각 표본추출)
+// Dixon-Coles 분포에서 スコア 뽑기 (독립 포아송 + 기각 표본추출)
 function sampleScore(l, m, rho, rnd) {
   const tmax = Math.max(1, 1 - l * m * rho, 1 - rho, 1 + l * rho, 1 + m * rho);
   for (;;) {
@@ -833,7 +833,7 @@ function sampleScore(l, m, rho, rnd) {
 }
 
 /* ---------- 리그 상태 ---------- */
-// results 행: [날짜, 라운드, 홈, 원정, 홈득점, 원정득점, 단계], fixtures 행: [날짜, 라운드, 홈, 원정, 단계]
+// results 행: [日付, 節, ホーム, アウェイ, 홈득点, 원정득点, 단계], fixtures 행: [日付, 節, ホーム, アウェイ, 단계]
 function makeCtx(doc, P, opt) {
   opt = opt || {};
   const teams = doc.standings.map(s => s.team);
@@ -848,7 +848,7 @@ function makeCtx(doc, P, opt) {
     regFix = later.filter(r => !r[6] && (!split || r[1] <= split.after)).map(r => [ix[r[2]], ix[r[3]]]);
     finFix = [];
   } else {
-    // 일정 행: [홈, 원정, 경기 키, 고정 결과(-1 = 시뮬레이션), 추적 번호(-1 = 추적 안 함)]
+    // 日程 행: [ホーム, アウェイ, 試合 키, 고정 結果(-1 = 시뮬레이션), 추적 번호(-1 = 추적 안 함)]
     const row = f => [ix[f[2]], ix[f[3]], f[0] + "|" + f[2] + "|" + f[3], -1, -1];
     regFix = (doc.fixtures || []).filter(f => !f[4]).map(row);
     finFix = (doc.fixtures || []).filter(f => f[4]).map(row);
@@ -880,7 +880,7 @@ function applyRes(h, a, hs, as, n, pts, gf, ga, w, h2h) {
   else if (hs < as) { pts[a] += 3; w[a]++; h2h[a * n + h] += 3; }
   else { pts[h]++; pts[a]++; h2h[h * n + a]++; h2h[a * n + h]++; }
 }
-// 순위: 승점 → 다득점 → 득실차 → 다승 → 승자승(동률 팀끼리 승점) → 추첨(벌점 정보 없음)
+// 順位: 勝ち点 → 다득点 → 得失点差 → 다승 → 승자승(동률 팀끼리 勝ち点) → 추첨(벌点 정보 없음)
 function sortIdx(list, n, pts, gf, ga, w, h2h, rnd) {
   const arr = list.slice();
   const k4 = (a, b) => pts[b] - pts[a] || (gf[b] - ga[b]) - (gf[a] - ga[a]) || gf[b] - gf[a];
@@ -901,7 +901,7 @@ function sortIdx(list, n, pts, gf, ga, w, h2h, rnd) {
   return out;
 }
 
-// 0 = 홈 승, 1 = 무승부, 2 = 원정 승
+// 0 = ホーム勝利, 1 = 引き分け, 2 = アウェイ勝利
 const outcomeOf = (x, y) => x > y ? 0 : x === y ? 1 : 2;
 
 // outBuf가 있으면 추적 중인 경기의 결과를 그 자리에 적는다
@@ -913,7 +913,7 @@ function simOnce(c, rnd, outBuf) {
   const play = (h, a, forced, ti) => {
     const l = c.mu * c.home * att[h] * def[a], m = c.mu * c.away * att[a] * def[h];
     let [x, y] = sampleScore(l, m, c.rho, rnd);
-    // 결과를 정해 둔 경기: 그 결과가 나올 때까지 점수를 다시 뽑는다(점수 분포는 그 결과 안에서 자연스럽게 유지)
+    // 결과를 정해 둔 試合: 그 결과가 나올 때까지 スコア를 다시 뽑는다(スコア 분포는 그 結果 안에서 자연스럽게 유지)
     if (forced >= 0) for (let k = 0; outcomeOf(x, y) !== forced; k++) {
       if (k > 500) { x = forced === 0 ? 1 : 0; y = forced === 2 ? 1 : 0; break; }
       [x, y] = sampleScore(l, m, c.rho, rnd);
@@ -925,7 +925,7 @@ function simOnce(c, rnd, outBuf) {
   const all = [...Array(n).keys()];
   let order;
   if (c.split && !c.groupA) {
-    // 파이널 라운드: 같은 그룹끼리 한 번씩. 홈은 시즌 홈 경기가 적은 팀(같으면 추첨)
+    // 파이널 節: 같은 그룹끼리 한 번씩. 홈은 シーズン ホーム試合가 적은 チーム(같으면 추첨)
     const first = sortIdx(all, n, pts, gf, ga, w, h2h, rnd);
     const gA = first.slice(0, c.split.size), gB = first.slice(c.split.size);
     const hc = c.hc.slice();
@@ -945,9 +945,9 @@ function simOnce(c, rnd, outBuf) {
   return { order, pts, att, def };
 }
 
-/* ---------- 현재 시즌: 두 리그를 함께 시뮬레이션 ---------- */
-// opts.forced = { k1: { 경기키: 0|1|2 }, k2: {...} }: 결과를 정해 두고 시뮬레이션 ("만약에")
-// opts.track = { k1: [경기키...], k2: [...] }: 그 경기 결과별로 팀 확률을 따로 센다 (빅매치)
+/* ---------- 現在 シーズン: 두 리그를 함께 시뮬레이션 ---------- */
+// opts.forced = { k1: { 경기키: 0|1|2 }, k2: {...} }: 결과를 정해 두고 시뮬레이션 ("もしも分析")
+// opts.track = { k1: [경기키...], k2: [...] }: 그 試合 결과별로 チーム 확률을 따로 센다 (注目試合)
 const ZONE_KEYS = { k1: ["champ", "acle", "finalA", "po"], k2: ["champ", "auto", "top6", "promo"] };
 function prepFix(c, forced, track) {
   const ti = {};
@@ -1017,7 +1017,7 @@ function simulateCurrent(d1, d2, N, seed, onProgress, opts) {
     });
     return out;
   };
-  // 추적 경기: 결과별 횟수 n[홈승, 무, 원정승]과, 그 결과일 때 팀별 구간 달성 횟수 z[팀][구간] = [홈승, 무, 원정승]
+  // 추적 試合: 결과별 횟수 n[ホーム勝利, 引き分け, 원정승]과, 그 결과일 때 팀별 구간 달성 횟수 z[チーム][구간] = [ホーム勝利, 引き分け, 원정승]
   const packTrack = (c, T, tr, keys) => tr.map((key, j) => {
     const zz = {};
     c.teams.forEach((t, i) => {
@@ -1041,13 +1041,13 @@ function modelInfo(c) {
 }
 
 /* ---------- 백테스트 ---------- */
-// 지난 시즌을 cutoff 날짜 시점에서 시뮬레이션하고 실제 최종 순위와 비교
+// 지난 シーズン을 cutoff 日付 시点에서 시뮬레이션하고 実際 最終 순位와 比較
 function backtestSeason(doc, cutoff, N, seed) {
   const P = PARAMS, rnd = mulberry32(seed);
   const c = makeCtx(doc, P, { cutoff });
   const posDist = new Float64Array(c.n * c.n);
   for (let s = 0; s < N; s++) simOnce(c, rnd).order.forEach((t, i) => posDist[t * c.n + i]++);
-  // 실제 최종 순위
+  // 実際 最終 順位
   const n = c.n, pts = new Int32Array(n), gf = new Int32Array(n), ga = new Int32Array(n), w = new Int32Array(n), h2h = new Int32Array(n * n);
   const all = doc.results.filter(r => r[6] !== "P");
   all.forEach(r => applyRes(c.ix[r[2]], c.ix[r[3]], r[4], r[5], n, pts, gf, ga, w, h2h));
@@ -1068,7 +1068,7 @@ function backtestSeason(doc, cutoff, N, seed) {
   };
 }
 
-// 경기 단위 검증: 각 경기일마다 그 전 경기만으로 전력을 다시 맞춰 승·무·패 확률을 예측
+// 試合 단位 검증: 각 경기일마다 그 전 경기만으로 전력을 다시 맞춰 勝利·引き分け·敗戦 확률을 予測
 function evalMatches(docs, P) {
   const tot = { n: 0, ll: 0, llBase: 0, br: 0, brBase: 0, dPred: 0, dAct: 0, hPred: 0, hAct: 0, buckets: [0, 0, 0, 0, 0].map(() => ({ p: 0, o: 0, n: 0 })) };
   const per = [];
@@ -1133,21 +1133,21 @@ const E = new Function(ENGINE + "\nreturn { PARAMS, simulateCurrent, evalMatches
 const NSIM = 50000;
 const ZONES = {
   k1: [
-    { key: "champ", label: "우승" },
-    { key: "acle", label: "ACL권(참고, 상위 3위)" },
-    { key: "finalA", label: "상위 6위 (1~6위)" },
-    { key: "po", label: "강등권", danger: true },
+    { key: "champ", label: "優勝" },
+    { key: "acle", label: "ACL圏（参考・上位3位）" },
+    { key: "finalA", label: "6位以内（1～6位）" },
+    { key: "po", label: "降格圏", danger: true },
   ],
   k2: [
-    { key: "champ", label: "우승" },
-    { key: "auto", label: "자동 승격 (1~2위)" },
-    { key: "top6", label: "6위 이내 (PO권 이상)" },
-    { key: "promo", label: "최종 승격" },
+    { key: "champ", label: "優勝" },
+    { key: "auto", label: "自動昇格（1～2位）" },
+    { key: "top6", label: "6位以内（プレーオフ圏以上）" },
+    { key: "promo", label: "最終昇格" },
   ],
 };
 const MAGIC = {
-  k1: [{ key: "champ", label: "우승까지" }, { key: "safe", label: "잔류까지", title: "강등권(18~20위)을 확실히 벗어나려면 더 따야 하는 승점" }],
-  k2: [{ key: "champ", label: "우승까지" }, { key: "auto", label: "자동승격까지", title: "2위 이내를 확정하려면 더 따야 하는 승점" }, { key: "top6", label: "PO권까지", title: "6위 이내(플레이오프 진출 이상)를 확정하려면 더 따야 하는 승점" }],
+  k1: [{ key: "champ", label: "優勝確定まで" }, { key: "safe", label: "残留確定まで", title: "降格圏（18～20位）を確実に脱するために必要な勝ち点" }],
+  k2: [{ key: "champ", label: "優勝確定まで" }, { key: "auto", label: "自動昇格確定まで", title: "2位以内を確定するために必要な勝ち点" }, { key: "top6", label: "プレーオフ進出確定まで", title: "6位以内（プレーオフ進出）を確定するために必要な勝ち点" }],
 };
 
 const $ = id => document.getElementById(id);
@@ -1196,7 +1196,7 @@ function teamNameHtml(name, extraClass = "") {
     return map;
   }, {});
   let cfg = TEAM_COLORS[rawName] || normalizedColors[normalized];
-  // 데이터마다 구단명 표기가 다른 경우를 위한 별칭 처리
+  // 데이터마다 구단명 표기가 다른 경우를 位한 별칭 처리
   if (!cfg) {
     if (normalized === "수원") cfg = league === "k2" ? TEAM_COLORS["수원삼성"] : TEAM_COLORS["수원FC"];
     if (normalized.startsWith("수원삼성")) cfg = TEAM_COLORS["수원삼성"];
@@ -1212,21 +1212,21 @@ function teamNameHtml(name, extraClass = "") {
 }
 const DATA = { k1: null, k2: null, h1: null, h2: null };
 let SIM = null, BT = null, HISTORY = [], league = "k1", openTeam = null, selectedTeamPage = null, metric = "champ", customSeed = false;
-const CHEER_GOALS = { k1: [{ key: "champ", label: "우승" }, { key: "acle", label: "ACL권(참고)" }, { key: "finalA", label: "상위 6위" }, { key: "safe", source: "po", inverse: true, label: "잔류" }], k2: [{ key: "champ", label: "우승" }, { key: "auto", label: "자동 승격" }, { key: "top6", label: "PO권" }, { key: "promo", label: "최종 승격" }] };
+const CHEER_GOALS = { k1: [{ key: "champ", label: "優勝" }, { key: "acle", label: "ACL圏（参考）" }, { key: "finalA", label: "6位以内" }, { key: "safe", source: "po", inverse: true, label: "残留" }], k2: [{ key: "champ", label: "優勝" }, { key: "auto", label: "自動昇格" }, { key: "top6", label: "プレーオフ圏" }, { key: "promo", label: "最終昇格" }] };
 let CHEER_GOAL = { k1: "champ", k2: "auto" };
-const CHEER_BEST_SCENARIO = { k1: {}, k2: {} }; // 응원 목표별 경기 단위 최적 결과
+const CHEER_BEST_SCENARIO = { k1: {}, k2: {} }; // 応援目標별 試合 단位 최적 結果
 let db = null, isOwner = false, STANDALONE = false;
 try { const v = localStorage.getItem("kl-odds-league"); if (v === "k1" || v === "k2") league = v; } catch {}
-// 내 팀(리그별, 이 브라우저에만 저장)과 "만약에"에서 고른 경기 결과(0 홈 승, 1 무, 2 원정 승)
+// 応援チーム(리그별, 이 브라우저에만 저장)과 "もしも分析"에서 고른 試合 結果(0 ホーム勝利, 1 引き分け, 2 アウェイ勝利)
 const MY = { k1: "", k2: "" };
 try { MY.k1 = localStorage.getItem("kl-odds-my-k1") || ""; MY.k2 = localStorage.getItem("kl-odds-my-k2") || ""; } catch {}
 const PICKS = { k1: {}, k2: {} };
-// 추이 차트에 그릴 팀 선택. null = 자동(확률 높은 팀), 배열 = 직접 고른 팀(칸 번호가 곧 색 번호라 팀을 빼도 다른 팀 색이 안 바뀐다)
-const TREND_MAX = 6;                       // 팔레트(--s1~--s6)가 6색이라 최대 6팀
-const TSEL = { k1: null, k2: null };       // 리그별 직접 선택 (이 브라우저에만 저장)
-const AUTO_PICK = { k1: [], k2: [] };      // 자동 상태에서 지금 그려지는 팀 (처음 누를 때 시작점으로 씀)
-const TREND_START = { k1: 1, k2: 1 };      // 확률 추이 시작 라운드(리그별)
-let trendFull = false;                     // 6팀이 이미 찼는데 더 누르면 안내 문구를 한 번 보여주는 표시
+// 추이 차트에 그릴 チーム 選択. null = 自動(確率 높은 チーム), 배열 = 직접 고른 チーム(칸 번호가 곧 색 번호라 팀을 빼도 다른 チーム 색이 안 바뀐다)
+const TREND_MAX = 6;                       // 팔레트(--s1~--s6)가 6색이라 최대 6チーム
+const TSEL = { k1: null, k2: null };       // 리그별 직접 選択 (이 브라우저에만 저장)
+const AUTO_PICK = { k1: [], k2: [] };      // 自動 상태에서 지금 그려지는 チーム (처음 누를 때 시작点으로 씀)
+const TREND_START = { k1: 1, k2: 1 };      // 確率推移の開始節(리그별)
+let trendFull = false;                     // 6팀이 이미 찼는데 더 누르면 案内 문구를 한 번 보여주는 表示
 try {
   ["k1", "k2"].forEach(lg => {
     const v = JSON.parse(localStorage.getItem("kl-odds-trend-" + lg) || "null");
@@ -1234,16 +1234,16 @@ try {
     if (Array.isArray(v)) TSEL[lg] = Array.from({ length: TREND_MAX }, (_, i) => typeof v[i] === "string" ? v[i] : null);
   });
 } catch {}
-// 현재 리그의 선택을 저장한다 (자동이면 저장값을 지운다)
+// 現在 리그의 선택을 저장한다 (자동이면 저장값을 지운다)
 function saveTrendSel() {
   try {
     const key = "kl-odds-trend-" + league;
     if (TSEL[league]) localStorage.setItem(key, JSON.stringify(TSEL[league])); else localStorage.removeItem(key);
   } catch {}
 }
-// 팀 칩을 눌렀을 때: 선택/해제를 바꾼다
+// チーム 칩을 눌렀을 때: 選択/해제를 바꾼다
 function toggleTrendTeam(t) {
-  // 자동 상태에서 처음 누르면, 지금 그려진 팀들을 시작점으로 삼아 직접 선택으로 바꾼다
+  // 自動 상태에서 처음 누르면, 지금 그려진 팀들을 시작点으로 삼아 직접 선택으로 바꾼다
   if (!TSEL[league]) TSEL[league] = Array.from({ length: TREND_MAX }, (_, i) => AUTO_PICK[league][i] ?? null);
   const slots = TSEL[league], at = slots.indexOf(t);
   if (at >= 0) slots[at] = null;                       // 이미 선택된 팀이면 해제
@@ -1309,9 +1309,9 @@ function goPage(id) {
   window.scrollTo(0, 0);
 }
 let WHATIF = null, whatifRunning = false;
-const ZSHORT = { k1: { champ: "우승", acle: "ACL권(참고)", finalA: "상위 6위", po: "강등권" }, k2: { champ: "우승", auto: "자동 승격", top6: "PO권", promo: "최종 승격" } };
+const ZSHORT = { k1: { champ: "優勝", acle: "ACL圏（参考）", finalA: "6位以内", po: "降格圏" }, k2: { champ: "優勝", auto: "自動昇格", top6: "プレーオフ圏", promo: "最終昇格" } };
 const fkey = f => f[0] + "|" + f[2] + "|" + f[3];
-const dow = d => "일월화수목금토"[new Date(d + "T00:00:00Z").getUTCDay()];
+const dow = d => "日月火水木金土"[new Date(d + "T00:00:00Z").getUTCDay()];
 
 /* ---------- 워커 ---------- */
 let worker = null, reqId = 0;
@@ -1333,7 +1333,7 @@ function getWorker() {
 function call(msg, onProgress) {
   const w = getWorker();
   if (!w) {
-    // 워커를 못 쓰면 화면 스레드에서 계산
+    // 워커를 못 쓰면 화면 스레드에서 計算
     return new Promise((res, rej) => setTimeout(() => {
       try {
         if (msg.type === "current") res(E.simulateCurrent(msg.d1, msg.d2, msg.N, msg.seed, null, msg.opts));
@@ -1345,7 +1345,7 @@ function call(msg, onProgress) {
   return new Promise((resolve, reject) => { pending[id] = { resolve, reject, onProgress }; w.postMessage(Object.assign({ id }, msg)); });
 }
 
-/* ---------- 공통 계산 ---------- */
+/* ---------- 공통 計算 ---------- */
 function lastN(results, team, n) {
   return results.filter(r => r[2] === team || r[3] === team)
     .slice().sort((a, b) => a[0] < b[0] ? 1 : a[0] > b[0] ? -1 : 0).slice(0, n)
@@ -1355,7 +1355,7 @@ function lastN(results, team, n) {
     });
 }
 
-// 남은 경기를 모두 이기거나 모두 지는 극단을 가정한 수학적 판정과 남은 승점
+// 残り試合を 모두 이기거나 모두 지는 극단을 가정한 수학적 판정과 必要勝ち点
 function decided(d, lg) {
   const st = d.standings, fx = d.fixtures || [], fmt = d.format || {};
   const splitStarted = d.results.some(r => r[6]) || fx.some(f => f[4]);
@@ -1368,7 +1368,7 @@ function decided(d, lg) {
     const others = st.filter(o => o.team !== t.team);
     return { sure: others.filter(o => maxFn(o) >= t.pts).length < k, out: others.filter(o => o.pts > maxFn(t)).length >= k };
   };
-  // k위 이내를 확정하려면 더 따야 하는 승점: 경쟁 팀 최대 승점 중 k번째로 큰 값을 넘어야 한다
+  // k位 이내를 확정하려면 더 따야 하는 勝ち点: 경쟁 チーム 최대 勝ち点 중 k번째로 큰 값을 넘어야 한다
   const needTop = (t, k) => {
     const maxes = st.filter(o => o.team !== t.team).map(maxAll).sort((a, b) => b - a);
     const need = (maxes[k - 1] ?? -1) + 1 - t.pts;
@@ -1402,25 +1402,25 @@ function decided(d, lg) {
 
 /* ---------- 화면 ---------- */
 const fmtP = p => p >= 99.95 ? ">99.9%" : p < 0.05 ? "<0.1%" : (p < 10 || p > 90 ? p.toFixed(1) : Math.round(p)) + "%";
-const ptxt = (p, st) => st && st.sure ? "확정" : st && st.out ? "불가" : fmtP(p);
+const ptxt = (p, st) => st && st.sure ? "確定" : st && st.out ? "可能性なし" : fmtP(p);
 function ci(p) { return 1.96 * Math.sqrt(Math.max(p * (1 - p), 0) / NSIM) * 100; }
 function pcCell(v, danger, st) {
   let p = v / SIM.N * 100;
   if (st && st.sure) p = 100; else if (st && st.out) p = 0;
   const fixed = st && (st.sure || st.out);
-  const txt = st && st.sure ? "확정" : st && st.out ? "불가" : fmtP(p);
-  const tip = fixed ? "수학적으로 결정됨" : `${(v / SIM.N * 100).toFixed(2)}% ± ${ci(v / SIM.N).toFixed(2)}%p (95%)`;
+  const txt = st && st.sure ? "確定" : st && st.out ? "可能性なし" : fmtP(p);
+  const tip = fixed ? "数学的に確定" : `${(v / SIM.N * 100).toFixed(2)}% ± ${ci(v / SIM.N).toFixed(2)}%p (95%)`;
   return `<div class="pc${p < 0.5 ? " dim" : ""}${danger ? " danger" : ""}${fixed ? " fixed" : ""}" title="${tip}"><span>${txt}</span><i><b style="width:${p}%"></b></i></div>`;
 }
 function magicCell(m, sureLabel) {
   if (!m) return "";
-  if (m.na) return `<span class="mg off">해당 없음</span>`;
-  if (m.out) return `<span class="mg off">불가</span>`;
+  if (m.na) return `<span class="mg off">該当なし</span>`;
+  if (m.out) return `<span class="mg off">可能性なし</span>`;
   if (m.need <= 0) return `<span class="mg sure">${sureLabel}</span>`;
-  if (!m.reachable) return `<span class="mg off" title="남은 경기를 모두 이겨도 자력으로는 안 되고, 경쟁 팀이 승점을 잃어야 합니다">자력 불가</span>`;
-  return `<span class="mg"><b class="num">${m.need}</b>점</span>`;
+  if (!m.reachable) return `<span class="mg off" title="残り試合に全勝しても自力では届かず、他チームの勝ち点が必要です">自力では不可能</span>`;
+  return `<span class="mg"><b class="num">${m.need}</b>点</span>`;
 }
-const SURE_LABEL = { champ: "우승 확정", safe: "잔류 확정", auto: "승격 확정", top6: "PO권 확정" };
+const SURE_LABEL = { champ: "優勝確定", safe: "残留確定", auto: "昇格確定", top6: "プレーオフ圏確定" };
 function zoneColor(lg, i, n) {
   if (lg === "k1") return i < 2 ? "var(--accent)" : i < 6 ? "var(--bar)" : i === n - 1 ? "var(--loss)" : "transparent";
   return i < 2 ? "var(--accent)" : i < 6 ? "var(--warn)" : "transparent";
@@ -1428,29 +1428,29 @@ function zoneColor(lg, i, n) {
 
 function renderTeamPage() {
   const root = $("teamPage"), d = DATA[league];
-  if (!root || !d || !SIM || !selectedTeamPage) { if (root) root.innerHTML = `<p class="empty">순위표에서 팀을 골라 주세요.</p>`; return; }
+  if (!root || !d || !SIM || !selectedTeamPage) { if (root) root.innerHTML = `<p class="empty">順位表からチームを選択してください。</p>`; return; }
   const t = d.standings.find(x => x.team === selectedTeamPage), r = SIM[league][selectedTeamPage];
-  if (!t || !r) { root.innerHTML = `<p class="empty">이 팀의 정보를 찾을 수 없어요.</p><button type="button" class="ghost" data-go-page="standings">순위표로 돌아가기</button>`; return; }
+  if (!t || !r) { root.innerHTML = `<p class="empty">チーム情報が見つかりません。</p><button type="button" class="ghost" data-go-page="standings">順位表に戻る</button>`; return; }
   const zones = ZONES[league], dec = decided(d, league)[t.team], form = lastN(d.results, t.team, 5).reverse();
-  root.innerHTML = `<div class="team-page-head"><button type="button" class="ghost" data-go-page="standings">← 순위표</button><div><span class="meta">${league === "k1" ? "J1 리그" : "J2 리그"} · ${d.asOf || ""} 기준</span><h2>${teamNameHtml(t.team)}</h2><p>${t.rank}위 · ${t.p}경기 · ${t.pts}점 · 득실 ${t.gf - t.ga > 0 ? "+" : ""}${t.gf - t.ga}</p></div></div>
+  root.innerHTML = `<div class="team-page-head"><button type="button" class="ghost" data-go-page="standings">← 順位表</button><div><span class="meta">${league === "k1" ? "J1リーグ" : "J2リーグ"}・${d.asOf || ""}現在</span><h2>${teamNameHtml(t.team)}</h2><p>${t.rank}位・${t.p}試合・${t.pts}点・得失点差 ${t.gf - t.ga > 0 ? "+" : ""}${t.gf - t.ga}</p></div></div>
     <div class="team-page-probs">${zones.map(z => `<article><span>${esc(z.label)}</span><b>${ptxt(r[z.key] / SIM.N * 100, dec[z.key])}</b><i><b style="width:${Math.max(0, Math.min(100, r[z.key] / SIM.N * 100))}%"></b></i></article>`).join("")}</div>
-    <div class="team-page-form"><b>최근 5경기</b><span class="form">${form.map(f => `<i class="${f.r}" title="${esc(f.date)} ${f.my}-${f.op}">${f.r === "W" ? "승" : f.r === "D" ? "무" : "패"}</i>`).join("") || "기록 없음"}</span></div>
-    <h3 class="sub">일정·전력·최종 순위 전망</h3>${detailInner(d, t, r)}`;
+    <div class="team-page-form"><b>直近5試合</b><span class="form">${form.map(f => `<i class="${f.r}" title="${esc(f.date)} ${f.my}-${f.op}">${f.r === "W" ? "勝利" : f.r === "D" ? "引き分け" : "敗戦"}</i>`).join("") || "記録なし"}</span></div>
+    <h3 class="sub">日程・戦力・最終順位予測</h3>${detailInner(d, t, r)}`;
 }
 
-/* ---------- 팀 간 상대 전적 비교 ---------- */
+/* ---------- チーム間の対戦成績比較 ---------- */
 function renderComparePage() {
   const root = $("comparePage"), d = DATA[league];
-  if (!root || !d || !d.standings) { if(root) root.innerHTML = '<p class="empty">팀 데이터를 불러오는 중입니다.</p>'; return; }
+  if (!root || !d || !d.standings) { if(root) root.innerHTML = '<p class="empty">チーム データを読み込んでいます。</p>'; return; }
   const teams = d.standings.slice().sort((a,b)=>a.rank-b.rank);
   const savedA = root.querySelector('#compareA')?.value || MY[league] || teams[0]?.team || '';
   const savedB = root.querySelector('#compareB')?.value || teams.find(t=>t.team!==savedA)?.team || teams[1]?.team || '';
   const opts = selected => teams.map(t=>`<option value="${esc(t.team)}" ${t.team===selected?'selected':''}>${esc(t.team)}</option>`).join('');
-  root.innerHTML = `<div class="section-head"><div><h2>팀 간 상대 전적 비교</h2><p class="meta">${league==='k1'?'J1 리그':'J2 리그'} · ${esc(d.asOf||'')} 기준</p></div><button type="button" class="ghost" data-go-page="standings">순위표</button></div>
-    <div class="compare-pickers" aria-label="비교할 팀 선택">
-      <div class="compare-pick-card"><label class="compare-pick-label" for="compareA">TEAM A · 첫 번째 팀</label><div class="compare-pick-control"><i class="compare-pick-swatch" id="compareASwatch" aria-hidden="true"></i><select id="compareA">${opts(savedA)}</select><span class="compare-pick-chevron" aria-hidden="true">⌄</span></div></div>
-      <span class="compare-vs-badge" aria-hidden="true">VS</span>
-      <div class="compare-pick-card"><label class="compare-pick-label" for="compareB">TEAM B · 두 번째 팀</label><div class="compare-pick-control"><i class="compare-pick-swatch" id="compareBSwatch" aria-hidden="true"></i><select id="compareB">${opts(savedB)}</select><span class="compare-pick-chevron" aria-hidden="true">⌄</span></div></div>
+  root.innerHTML = `<div class="section-head"><div><h2>チーム間の対戦成績比較</h2><p class="meta">${league==='k1'?'J1リーグ':'J2リーグ'} · ${esc(d.asOf||'')} 基準</p></div><button type="button" class="ghost" data-go-page="standings">順位表</button></div>
+    <div class="compare-pickers" aria-label="比較するチームを選択">
+      <div class="compare-pick-card"><label class="compare-pick-label" for="compareA">TEAM A · 1チーム目</label><div class="compare-pick-control"><i class="compare-pick-swatch" id="compareASwatch" aria-hidden="true"></i><select id="compareA">${opts(savedA)}</select><span class="compare-pick-chevron" aria-hidden="true">⌄</span></div></div>
+      <span class="compare-vs-badge" aria-hidden="true">対</span>
+      <div class="compare-pick-card"><label class="compare-pick-label" for="compareB">TEAM B · 2チーム目</label><div class="compare-pick-control"><i class="compare-pick-swatch" id="compareBSwatch" aria-hidden="true"></i><select id="compareB">${opts(savedB)}</select><span class="compare-pick-chevron" aria-hidden="true">⌄</span></div></div>
     </div><div id="compareResult"></div>`;
   const updateSwatches = () => {
     [['compareA','compareASwatch'],['compareB','compareBSwatch']].forEach(([selectId,swatchId]) => {
@@ -1462,32 +1462,32 @@ function renderComparePage() {
   updateSwatches();
   const aName=root.querySelector('#compareA').value, bName=root.querySelector('#compareB').value;
   const a=teams.find(t=>t.team===aName), b=teams.find(t=>t.team===bName), out=root.querySelector('#compareResult');
-  if(!a||!b||aName===bName){out.innerHTML='<p class="empty">서로 다른 두 팀을 선택해 주세요.</p>';}
+  if(!a||!b||aName===bName){out.innerHTML='<p class="empty">異なる2チームを選択してください。</p>';}
   else {
     const rows=[
-      {label:'현재 순위',av:`${a.rank}위`,bv:`${b.rank}위`,an:Number(a.rank),bn:Number(b.rank),lower:true},
-      {label:'경기 수',av:a.p,bv:b.p,an:Number(a.p),bn:Number(b.p)},
-      {label:'승점',av:a.pts,bv:b.pts,an:Number(a.pts),bn:Number(b.pts)},
-      {label:'승',av:a.w,bv:b.w,an:Number(a.w),bn:Number(b.w)},
-      {label:'무',av:a.d,bv:b.d,an:Number(a.d),bn:Number(b.d)},
-      {label:'패',av:a.l,bv:b.l,an:Number(a.l),bn:Number(b.l),lower:true},
-      {label:'득점',av:a.gf,bv:b.gf,an:Number(a.gf),bn:Number(b.gf)},
-      {label:'실점',av:a.ga,bv:b.ga,an:Number(a.ga),bn:Number(b.ga),lower:true},
-      {label:'득실차',av:(a.gf-a.ga>0?'+':'')+(a.gf-a.ga),bv:(b.gf-b.ga>0?'+':'')+(b.gf-b.ga),an:Number(a.gf)-Number(a.ga),bn:Number(b.gf)-Number(b.ga)}
+      {label:'現在 順位',av:`${a.rank}位`,bv:`${b.rank}位`,an:Number(a.rank),bn:Number(b.rank),lower:true},
+      {label:'試合数',av:a.p,bv:b.p,an:Number(a.p),bn:Number(b.p)},
+      {label:'勝ち点',av:a.pts,bv:b.pts,an:Number(a.pts),bn:Number(b.pts)},
+      {label:'勝利',av:a.w,bv:b.w,an:Number(a.w),bn:Number(b.w)},
+      {label:'引き分け',av:a.d,bv:b.d,an:Number(a.d),bn:Number(b.d)},
+      {label:'敗戦',av:a.l,bv:b.l,an:Number(a.l),bn:Number(b.l),lower:true},
+      {label:'得点',av:a.gf,bv:b.gf,an:Number(a.gf),bn:Number(b.gf)},
+      {label:'失点',av:a.ga,bv:b.ga,an:Number(a.ga),bn:Number(b.ga),lower:true},
+      {label:'得失点差',av:(a.gf-a.ga>0?'+':'')+(a.gf-a.ga),bv:(b.gf-b.ga>0?'+':'')+(b.gf-b.ga),an:Number(a.gf)-Number(a.ga),bn:Number(b.gf)-Number(b.ga)}
     ];
     const betterClass=(r,side)=>{const av=r.an,bv=r.bn;if(!Number.isFinite(av)||!Number.isFinite(bv)||av===bv)return '';const aWins=r.lower?av<bv:av>bv;return (side==='a'?aWins:!aWins)?'compare-better':'';};
     const results=(d.results||[]).filter(g=>(g[2]===aName&&g[3]===bName)||(g[2]===bName&&g[3]===aName)).sort((x,y)=>String(y[0]).localeCompare(String(x[0])));
     let aw=0,ad=0,al=0,agf=0,aga=0; results.forEach(g=>{const isHome=g[2]===aName, gf=Number(isHome?g[4]:g[5]),ga=Number(isHome?g[5]:g[4]);agf+=gf;aga+=ga;if(gf>ga)aw++;else if(gf===ga)ad++;else al++;});
     const avgA=results.length?(agf/results.length).toFixed(2):'—',avgB=results.length?(aga/results.length).toFixed(2):'—';
-    out.innerHTML=`<div class="tablebox"><table><thead><tr><th>비교 항목</th><th>${teamNameHtml(aName)}</th><th>${teamNameHtml(bName)}</th></tr></thead><tbody>${rows.map(r=>`<tr><th>${r.label}</th><td class="${betterClass(r,'a')}">${r.av}</td><td class="${betterClass(r,'b')}">${r.bv}</td></tr>`).join('')}</tbody></table></div><p class="compare-legend">초록색 표시와 ✓는 해당 항목에서 더 나은 기록입니다. 동률인 항목은 표시하지 않습니다.</p>
-      <section class="panel" style="margin-top:16px"><h3>이번 시즌 맞대결</h3><p class="meta">${results.length?`총 ${results.length}경기 · ${aName} 기준 ${aw}승 ${ad}무 ${al}패`:'이번 시즌 맞대결 결과 데이터가 없습니다.'}</p>
-      <div class="summary"><div><span>${esc(aName)} 평균 득점</span><b>${avgA}</b></div><div><span>${esc(bName)} 평균 득점</span><b>${avgB}</b></div></div>
-      ${results.length?`<div class="tablebox"><table><thead><tr><th>날짜</th><th>라운드</th><th>경기</th><th>결과</th></tr></thead><tbody>${results.map(g=>`<tr><td>${esc(g[0]||'—')}</td><td>${esc(String(g[1]??'—'))}</td><td>${teamNameHtml(g[2])} vs ${teamNameHtml(g[3])}</td><td><b>${g[4]} - ${g[5]}</b></td></tr>`).join('')}</tbody></table></div>`:''}</section>`;
+    out.innerHTML=`<div class="tablebox"><table><thead><tr><th>比較項目</th><th>${teamNameHtml(aName)}</th><th>${teamNameHtml(bName)}</th></tr></thead><tbody>${rows.map(r=>`<tr><th>${r.label}</th><td class="${betterClass(r,'a')}">${r.av}</td><td class="${betterClass(r,'b')}">${r.bv}</td></tr>`).join('')}</tbody></table></div><p class="compare-legend">緑色の表示と✓は、その項目で優れていることを示します。同率の項目は表示しません。</p>
+      <section class="panel" style="margin-top:16px"><h3>今季の直接対決</h3><p class="meta">${results.length?`총 ${results.length}試合 · ${aName} 基準 ${aw}勝利 ${ad}引き分け ${al}敗戦`:'今季の直接対決データがありません。'}</p>
+      <div class="summary"><div><span>${esc(aName)} 平均得点</span><b>${avgA}</b></div><div><span>${esc(bName)} 平均得点</span><b>${avgB}</b></div></div>
+      ${results.length?`<div class="tablebox"><table><thead><tr><th>日付</th><th>節</th><th>試合</th><th>結果</th></tr></thead><tbody>${results.map(g=>`<tr><td>${esc(g[0]||'—')}</td><td>${esc(String(g[1]??'—'))}</td><td>${teamNameHtml(g[2])} vs ${teamNameHtml(g[3])}</td><td><b>${g[4]} - ${g[5]}</b></td></tr>`).join('')}</tbody></table></div>`:''}</section>`;
   }
   ['compareA','compareB'].forEach(id=>root.querySelector('#'+id)?.addEventListener('change',()=>renderComparePage()));
 }
 
-/* ---------- 대시보드: 기존 데이터만 재사용해 첫 화면 요약을 구성 ---------- */
+/* ---------- ダッシュボード: 기존 데이터만 재사용해 첫 화면 요약을 구성 ---------- */
 function renderDashboard() {
   const d = DATA[league];
   if (!d || !SIM || !d.standings) return;
@@ -1497,26 +1497,26 @@ function renderDashboard() {
   const recent = me ? lastN(d.results || [], me, 5).reverse() : [];
   const fixtures = (d.fixtures || []).filter(f => f[1] != null).slice().sort((a,b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0);
   const next = me ? fixtures.find(f => f[2] === me || f[3] === me) : fixtures[0];
-  const lgName = league === "k1" ? "J1 리그" : "J2 리그";
-  $("dashIntro").textContent = `${lgName} · ${d.asOf || "기준일 정보 없음"} 기준${me ? ` · ${me} 중심으로 표시 중` : " · 리그 전체 현황을 먼저 살펴보고 응원 팀을 설정해 보세요"}`;
-  $("dashTeamHeading").textContent = mine ? `MY TEAM · ${me}` : "나만의 대시보드 설정";
+  const lgName = league === "k1" ? "J1リーグ" : "J2リーグ";
+  $("dashIntro").textContent = `${lgName} · ${d.asOf || "基準日情報なし"} 基準${me ? ` · ${me} 중심으로 表示 중` : " · まずリーグ全体の状況を確認し、応援チームを設定してください"}`;
+  $("dashTeamHeading").textContent = mine ? `MY TEAM · ${me}` : "マイダッシュボード設定";
   const teamDetailBtn = $("dashTeamDetailBtn");
   teamDetailBtn.hidden = !mine;
   if (mine) teamDetailBtn.dataset.teamPage = me;
   else delete teamDetailBtn.dataset.teamPage;
   const heroTitle = document.querySelector("#page-dashboard .dash-title");
-  if (heroTitle) heroTitle.textContent = mine ? `${me}의 시즌 현황` : "J리그 현황을 한눈에";
+  if (heroTitle) heroTitle.textContent = mine ? `${me}のシーズン状況` : "Jリーグの状況を一覧で確認";
   if (!mine) {
-    $("dashTeam").innerHTML = `<div class="dash-team-name">응원 팀을 등록해 보세요</div><p class="dash-empty">팀을 선택하면 순위와 승점, 득점·실점, 최근 5경기 흐름, 시즌 전망을 한곳에서 확인할 수 있습니다.</p><button type="button" class="primary" data-dashboard-select>응원 팀 선택하기</button><p class="dash-team-sub" style="margin-top:10px">선택한 팀은 이 브라우저에 저장되며, 상단의 리그 선택에 따라 J1 리그·J2 리그를 각각 설정할 수 있습니다.</p>`;
+    $("dashTeam").innerHTML = `<div class="dash-team-name">応援チームを登録してください</div><p class="dash-empty">チームを選ぶと順位・勝ち点・得点・失点・直近5試合・シーズン予測をまとめて確認できます。</p><button type="button" class="primary" data-dashboard-select>応援チームを選択</button><p class="dash-team-sub" style="margin-top:10px">選択したチームはこのブラウザーに保存され、上部のリーグ選択に応じてJ1・J2を設定できます。</p>`;
   } else {
     const gd = mine.gf - mine.ga;
-    const form = recent.map(f => `<i class="${f.r}" title="${esc(f.date)} ${esc(f.opp)} ${f.my}-${f.op}">${f.r === "W" ? "승" : f.r === "D" ? "무" : "패"}</i>`).join("") || '<span class="dash-team-sub">최근 경기 기록 없음</span>';
+    const form = recent.map(f => `<i class="${f.r}" title="${esc(f.date)} ${esc(f.opp)} ${f.my}-${f.op}">${f.r === "W" ? "勝利" : f.r === "D" ? "引き分け" : "敗戦"}</i>`).join("") || '<span class="dash-team-sub">直近の試合記録はありません</span>';
     const probs = SIM[league][me];
     const zones = ZONES[league].slice(0, 2).map(z => `${z.label} ${fmtP(probs[z.key] / SIM.N * 100)}`).join(" · ");
-    $("dashTeam").innerHTML = `<div class="dash-team-name">${teamNameHtml(me)} <span class="dash-team-sub">${mine.rank}위</span></div><div class="dash-team-sub">${mine.p}경기 · ${mine.w ?? ""}${mine.w != null ? "승" : ""}${mine.d != null ? ` ${mine.d}무` : ""}${mine.l != null ? ` ${mine.l}패` : ""}</div><div class="dash-team-stats"><div class="dash-stat"><span>승점</span><b>${mine.pts}</b></div><div class="dash-stat"><span>득점</span><b>${mine.gf}</b></div><div class="dash-stat"><span>실점</span><b>${mine.ga}</b></div><div class="dash-stat"><span>득실차</span><b>${gd > 0 ? "+" : ""}${gd}</b></div></div><div class="dash-form"><span class="dash-form-label">최근 5경기</span><span class="form">${form}</span></div><p class="dash-team-sub">시즌 전망 · ${esc(zones || "확률 정보 없음")}</p>`;
+    $("dashTeam").innerHTML = `<div class="dash-team-name">${teamNameHtml(me)} <span class="dash-team-sub">${mine.rank}位</span></div><div class="dash-team-sub">${mine.p}試合 · ${mine.w ?? ""}${mine.w != null ? "勝利" : ""}${mine.d != null ? ` ${mine.d}引き分け` : ""}${mine.l != null ? ` ${mine.l}敗戦` : ""}</div><div class="dash-team-stats"><div class="dash-stat"><span>勝ち点</span><b>${mine.pts}</b></div><div class="dash-stat"><span>得点</span><b>${mine.gf}</b></div><div class="dash-stat"><span>失点</span><b>${mine.ga}</b></div><div class="dash-stat"><span>得失点差</span><b>${gd > 0 ? "+" : ""}${gd}</b></div></div><div class="dash-form"><span class="dash-form-label">直近5試合</span><span class="form">${form}</span></div><p class="dash-team-sub">シーズン予測 · ${esc(zones || "確率データなし")}</p>`;
   }
   if (!next) {
-    $("dashNext").innerHTML = `<div class="dash-empty">현재 등록된 남은 경기가 없습니다.</div>`;
+    $("dashNext").innerHTML = `<div class="dash-empty">登録済みの残り試合はありません。</div>`;
     $("dashFocusMatch").hidden = true;
     $("dashFocusMatch").dataset.focusMatch = "";
   } else {
@@ -1532,17 +1532,17 @@ function renderDashboard() {
         const l = model.mu * (home ? model.home : 1 / model.home) * (home ? own.att : opp.att) * (home ? opp.def : own.def);
         const m = model.mu * (home ? 1 / model.home : model.home) * (home ? opp.att : own.att) * (home ? own.def : opp.def);
         const raw = E.matchProbs(l, m, model.rho), p = home ? raw : [raw[2], raw[1], raw[0]];
-        probLine = `<div class="dash-team-sub" style="margin-top:9px">내 팀 기준 승 ${Math.round(p[0]*100)}% · 무 ${Math.round(p[1]*100)}% · 패 ${Math.round(p[2]*100)}%</div>`;
+        probLine = `<div class="dash-team-sub" style="margin-top:9px">応援チーム 基準 勝利 ${Math.round(p[0]*100)}% · 引き分け ${Math.round(p[1]*100)}% · 敗戦 ${Math.round(p[2]*100)}%</div>`;
       }
     }
-    $("dashNext").innerHTML = `<div class="dash-fixture"><div><div class="dash-fixture-team">${teamNameHtml(homeName)}</div><div class="dash-fixture-meta">홈</div></div><span class="dash-vs">VS</span><div><div class="dash-fixture-team">${teamNameHtml(awayName)}</div><div class="dash-fixture-meta" style="text-align:right">원정</div></div></div><div class="dash-fixture-meta">${esc(date)}${me && !isMyFixture ? " · 내 팀 경기 외 가장 가까운 일정" : ""}</div>${probLine}`;
+    $("dashNext").innerHTML = `<div class="dash-fixture"><div><div class="dash-fixture-team">${teamNameHtml(homeName)}</div><div class="dash-fixture-meta">ホーム</div></div><span class="dash-vs">対</span><div><div class="dash-fixture-team">${teamNameHtml(awayName)}</div><div class="dash-fixture-meta" style="text-align:right">アウェイ</div></div></div><div class="dash-fixture-meta">${esc(date)}${me && !isMyFixture ? "・応援チームの試合以外で最も近い日程" : ""}</div>${probLine}`;
     const focusBtn = $("dashFocusMatch");
     focusBtn.hidden = false;
     focusBtn.dataset.focusMatch = `${next[0]}|${homeName}|${awayName}`;
   }
   const preview = mine ? st.filter(t => Math.abs(t.rank - mine.rank) <= 2) : st.slice(0, 5);
   const rows = preview.slice().sort((a,b) => a.rank-b.rank).map(t => `<tr class="${t.team === me ? "mine" : ""}"><td>${t.rank}</td><td>${t.team === me ? "★ " : ""}${teamNameHtml(t.team)}</td><td class="num">${t.p}</td><td class="num">${t.gf}</td><td class="num">${t.ga}</td><td class="num">${t.gf-t.ga > 0 ? "+" : ""}${t.gf-t.ga}</td><td class="num"><b>${t.pts}</b></td></tr>`).join("");
-  $("dashStandings").innerHTML = `<table><thead><tr><th>순위</th><th>팀</th><th>경기</th><th>득점</th><th>실점</th><th>득실차</th><th>승점</th></tr></thead><tbody>${rows}</tbody></table>${mine ? `<p class="dash-team-sub" style="margin:10px 0 0">내 팀 순위를 기준으로 위아래 2개 팀을 표시합니다.</p>` : `<p class="dash-team-sub" style="margin:10px 0 0">상위 5개 팀을 표시합니다. 내 팀을 선택하면 해당 팀 주변 순위로 바뀝니다.</p>`}`;
+  $("dashStandings").innerHTML = `<table><thead><tr><th>順位</th><th>チーム</th><th>試合</th><th>得点</th><th>失点</th><th>得失点差</th><th>勝ち点</th></tr></thead><tbody>${rows}</tbody></table>${mine ? `<p class="dash-team-sub" style="margin:10px 0 0">応援チーム 순位를 基準으로 位아래 2개 팀을 표시합니다.</p>` : `<p class="dash-team-sub" style="margin:10px 0 0">上位5位개 팀을 표시합니다. 応援チーム을 선택하면 해당 チーム 주변 순位로 바뀝니다.</p>`}`;
 }
 
 function render() {
@@ -1558,31 +1558,31 @@ function render() {
   renderDashboard();
   const res = SIM[league], zones = ZONES[league], mags = MAGIC[league], n = d.standings.length;
   $("asOf").textContent = d.asOf || "-";
-  $("srcLine").textContent = d.source ? "출처 · " + d.source : "";
-  $("seedNote").textContent = customSeed ? "· 새 시드로 다시 계산한 결과" : "";
+  $("srcLine").textContent = d.source ? "出典・" + d.source : "";
+  $("seedNote").textContent = customSeed ? "・新しいシードで再計算した結果" : "";
   const notes = [d.note].filter(Boolean);
   const stale = d.asOf && (Date.now() - Date.parse(d.asOf + "T07:00:00+09:00")) > 36 * 3600 * 1000;
-  if (stale) notes.unshift(`데이터가 ${d.asOf} 기준이에요. 자동 갱신이 하루 넘게 멈춰 있을 수 있어요${STANDALONE ? "(GitHub Actions 실행 기록을 확인해 주세요)" : "(Claude 앱이 켜져 있어야 갱신됩니다)"}.`);
+  if (stale) notes.unshift(`データは${d.asOf}時点です。自動更新が1日以上停止している可能性があります${STANDALONE ? "（GitHub Actionsの実行履歴を確認してください）" : "（Claudeアプリの起動中に更新されます）"}.`);
   $("notice").hidden = !notes.length; $("notice").textContent = notes.join(" ");
 
   const st = d.standings.slice().sort((a, b) => a.rank - b.rank);
   const dec = decided(d, league);
   const leader = st[0], lm = dec[leader.team].m.champ;
   const best = key => st.map(t => ({ t, v: res[t.team][key], s: dec[t.team][key] })).sort((a, b) => b.v - a.v)[0];
-  const pct = b => b.s && b.s.sure ? "확정" : fmtP(b.v / SIM.N * 100);
+  const pct = b => b.s && b.s.sure ? "確定" : fmtP(b.v / SIM.N * 100);
   const cards = [];
-  cards.push(lm.need <= 0 ? [`1위 ${leader.team}`, "우승 확정", " "]
-    : [`1위 ${leader.team} 우승까지`, lm.reachable ? lm.need + "점" : "자력 불가", lm.reachable ? `${Math.ceil(lm.need / 3)}승이면 자력 확정` : "경쟁 팀 결과에 달림"]);
+  cards.push(lm.need <= 0 ? [`1位 ${leader.team}`, "優勝確定", " "]
+    : [`1位 ${leader.team}の優勝確定まで`, lm.reachable ? lm.need + "点" : "自力では不可能", lm.reachable ? `あと${Math.ceil(lm.need / 3)}勝で自力確定` : "他チームの結果次第"]);
   if (league === "k1") {
     const b = best("champ"), p = best("po");
-    cards.push(["우승 후보 1순위", b.t.team, pct(b)], ["강등권 가능성 최고", p.t.team, pct(p)]);
+    cards.push(["優勝候補筆頭", b.t.team, pct(b)], ["降格の可能性が最も高いチーム", p.t.team, pct(p)]);
   } else {
     const b = best("champ"), p = best("promo");
-    cards.push(["우승 후보 1순위", b.t.team, pct(b)], ["최종 승격 가능성 최고", p.t.team, pct(p)]);
+    cards.push(["優勝候補筆頭", b.t.team, pct(b)], ["最終昇格の可能性が最も高いチーム", p.t.team, pct(p)]);
   }
-  // 선택한 팀이 시즌 종료까지 치러야 하는 잔여 경기 수를 표시한다.
-  // J1 리그에서 파이널 라운드 대진이 아직 확정되지 않았다면,
-  // 정규 라운드 잔여 경기 외에 팀당 파이널 라운드 5경기를 더한다.
+  // 선택1チーム이 シーズン 종료까지 치러야 하는 잔여 試合数를 표시한다.
+  // J1リーグ에서 파이널 節 대진이 아직 확정되지 않았다면,
+  // 정규 節 잔여 試合 외에 팀당 파이널 節 5경기를 더한다.
   const splitPending = league === "k1"
     && !d.results.some(r => r[6])
     && !(d.fixtures || []).some(f => f[4]);
@@ -1590,21 +1590,21 @@ function render() {
     ? (d.fixtures || []).filter(f => f[2] === me || f[3] === me).length + (splitPending ? 5 : 0)
     : null;
   cards.push([
-    "내 팀의 잔여 경기",
-    me ? `${myRemainingFixtures}경기` : "팀 미선택",
-    me ? `${me}의 시즌 종료까지 남은 경기 수` : "상단에서 내 팀을 선택해 주세요."
+    "応援チームの残り試合",
+    me ? `${myRemainingFixtures}試合` : "チーム未選択",
+    me ? `${me}のシーズン終了までの残り試合数` : "上部から応援チームを選択してください。"
   ]);
   const mt = me && st.find(t => t.team === me);
   if (mt) {
     const exempt = (d.format || {}).noPlayoffTeam;
     const keys = (league === "k1" ? ["champ", "finalA", "po"] : ["auto", "top6", "promo"]).filter(k => !(k === "po" && me === exempt));
     const em = keys.map(k => `${ZSHORT[league][k]} ${ptxt(res[me][k] / SIM.N * 100, dec[me][k])}`).join(" · ");
-    cards.unshift([`★ 내 팀 ${me}`, `${mt.rank}위 · ${mt.pts}점`, em, "mine"]);
+    cards.unshift([`★ 応援チーム ${me}`, `${mt.rank}位・${mt.pts}点`, em, "mine"]);
   }
   $("summary").innerHTML = cards.map(([a, b, c, cls]) => `<div class="sum${cls ? " " + cls : ""}"><span>${esc(a)}</span><b>${esc(b)}</b><em>${esc(c)}</em></div>`).join("");
 
   const ncols = 10 + mags.length + zones.length;
-  $("thead").innerHTML = `<tr><th class="zone"></th><th>순위</th><th class="sticky">팀</th><th>경기</th><th>승점</th><th>득점</th><th>실점</th><th>득실차</th><th>최근 5경기</th><th>예상 승점</th>
+  $("thead").innerHTML = `<tr><th class="zone"></th><th>順位</th><th class="sticky">チーム</th><th>試合</th><th>勝ち点</th><th>得点</th><th>失点</th><th>得失点差</th><th>直近5試合</th><th>予想勝ち点</th>
     ${mags.map(m => `<th${m.title ? ` title="${esc(m.title)}"` : ""}>${m.label}</th>`).join("")}
     ${zones.map(z => `<th class="p">${z.label}</th>`).join("")}</tr>`;
   $("tbody").innerHTML = st.map((t, i) => {
@@ -1613,12 +1613,12 @@ function render() {
     const row = `<tr class="team${t.team === me ? " mine" : ""}" data-team="${esc(t.team)}" aria-expanded="${openTeam === t.team}" tabindex="0">
       <td class="zone" style="background:${zoneColor(league, i, n)}"></td>
       <td class="rank">${t.rank}</td>
-      <td class="sticky">${t.team === me ? '<span class="star" title="내 팀">★</span>' : ""}${teamNameHtml(t.team, "tname")}</td>
+      <td class="sticky">${t.team === me ? '<span class="star" title="応援チーム">★</span>' : ""}${teamNameHtml(t.team, "tname")}</td>
       <td class="num">${t.p}</td><td class="num"><b>${t.pts}</b></td><td class="num">${t.gf}</td><td class="num">${t.ga}</td><td class="num">${t.gf - t.ga > 0 ? "+" : ""}${t.gf - t.ga}</td>
-      <td><span class="form">${form.map(f => `<i class="${f.r}" title="${esc(f.date)} ${f.home ? "홈" : "원정"} ${esc(f.opp)} ${f.my}-${f.op}">${f.r === "W" ? "승" : f.r === "D" ? "무" : "패"}</i>`).join("")}</span></td>
+      <td><span class="form">${form.map(f => `<i class="${f.r}" title="${esc(f.date)} ${f.home ? "ホーム" : "アウェイ"} ${esc(f.opp)} ${f.my}-${f.op}">${f.r === "W" ? "勝利" : f.r === "D" ? "引き分け" : "敗戦"}</i>`).join("")}</span></td>
       <td class="num">${r.exp.toFixed(1)}</td>
       ${mags.map(m => `<td>${magicCell(dc.m[m.key], SURE_LABEL[m.key])}</td>`).join("")}
-      ${zones.map(z => `<td class="p">${(z.key === "po" && t.team === (d.format || {}).noPlayoffTeam) ? '<span class="mg off">해당 없음</span>' : pcCell(r[z.key], z.danger, dc[z.key])}</td>`).join("")}
+      ${zones.map(z => `<td class="p">${(z.key === "po" && t.team === (d.format || {}).noPlayoffTeam) ? '<span class="mg off">該当なし</span>' : pcCell(r[z.key], z.danger, dc[z.key])}</td>`).join("")}
     </tr>`;
     return row + (openTeam === t.team ? detailRow(d, t, r, ncols) : "");
   }).join("");
@@ -1632,20 +1632,20 @@ function render() {
     return `<article class="tcard${open ? " open" : ""}${t.team === me ? " mine" : ""}" style="--zone:${zc === "transparent" ? "var(--line)" : zc}">
       <button type="button" class="tcard-head" data-team="${esc(t.team)}" aria-expanded="${open}">
         <span class="rank">${t.rank}</span>${t.team === me ? '<span class="star">★</span>' : ""}${teamNameHtml(t.team, "tname")}
-        <span class="tcard-pts"><b class="num">${t.pts}</b>점</span><span class="chev" aria-hidden="true">▼</span>
+        <span class="tcard-pts"><b class="num">${t.pts}</b>点</span><span class="chev" aria-hidden="true">▼</span>
       </button>
-      <div class="tcard-meta"><span>${t.p}경기 · 득점 ${t.gf} · 실점 ${t.ga} · 득실차 ${gd > 0 ? "+" : ""}${gd} · 예상 ${r.exp.toFixed(1)}점</span>
-        <span class="form">${form.map(f => `<i class="${f.r}" title="${esc(f.date)} ${f.home ? "홈" : "원정"} ${esc(f.opp)} ${f.my}-${f.op}">${f.r === "W" ? "승" : f.r === "D" ? "무" : "패"}</i>`).join("")}</span></div>
-      <div class="tcard-probs">${zones.map(z => `<div><span class="lab">${z.label}</span>${(z.key === "po" && t.team === (d.format || {}).noPlayoffTeam) ? '<span class="mg off">해당 없음</span>' : pcCell(r[z.key], z.danger, dc[z.key])}</div>`).join("")}</div>
+      <div class="tcard-meta"><span>${t.p}試合・得点${t.gf}・失点${t.ga}・得失点差${gd > 0 ? "+" : ""}${gd}・予想${r.exp.toFixed(1)}点</span>
+        <span class="form">${form.map(f => `<i class="${f.r}" title="${esc(f.date)} ${f.home ? "ホーム" : "アウェイ"} ${esc(f.opp)} ${f.my}-${f.op}">${f.r === "W" ? "勝利" : f.r === "D" ? "引き分け" : "敗戦"}</i>`).join("")}</span></div>
+      <div class="tcard-probs">${zones.map(z => `<div><span class="lab">${z.label}</span>${(z.key === "po" && t.team === (d.format || {}).noPlayoffTeam) ? '<span class="mg off">該当なし</span>' : pcCell(r[z.key], z.danger, dc[z.key])}</div>`).join("")}</div>
       <div class="tcard-magic">${mags.map(m => `<span>${m.label} ${magicCell(dc.m[m.key], SURE_LABEL[m.key])}</span>`).join("")}</div>
       ${open ? detailInner(d, t, r) : ""}
     </article>`;
   }).join("");
 
   $("legend").innerHTML = (league === "k1"
-    ? [["var(--accent)", "ACLE 출전권 (1~2위)"], ["var(--bar)", "상위 6위 (3~6위)"], ["var(--loss)", "승격 플레이오프 (18~20위)"]]
-    : [["var(--accent)", "자동 승격 (1~2위)"], ["var(--warn)", "승격 플레이오프 (3~6위)"]])
-    .map(([c, l]) => `<span><i style="background:${c}"></i>${l}</span>`).join("") + `<span>팀을 누르면 남은 일정, 전력, 최종 순위 분포를 볼 수 있어요.</span>`;
+    ? [["var(--accent)", "ACL出場圏（1～2位）"], ["var(--bar)", "6位以内（3～6位）"], ["var(--loss)", "J1降格圏（18～20位）"]]
+    : [["var(--accent)", "自動昇格（1～2位）"], ["var(--warn)", "昇格プレーオフ圏（3～6位）"]])
+    .map(([c, l]) => `<span><i style="background:${c}"></i>${l}</span>`).join("") + `<span>チームを選ぶと、残り日程・戦力・最終順位分布を確認できます。</span>`;
   if (currentPage() === "team") renderTeamPage();
   if (currentPage() === "compare") renderComparePage();
   if (currentPage() === "cheer") renderCheer();
@@ -1660,7 +1660,7 @@ function detailInner(d, t, r) {
   const recent = lastN(d.results, t.team, 5);
   const m = SIM.model[league], R = m.R[t.team];
   const splitPending = (d.format || {}).split && !d.results.some(x => x[6]) && !(d.fixtures || []).some(f => f[4]);
-  // J2 리그는면 라운드마다 한 팀이 쉰다: 남은 라운드 중 이 팀 경기가 없는 라운드를 휴식으로 표시
+  // J2リーグ는면 節마다 1チーム이 쉰다: 남은 節 중 이 チーム 경기가 없는 節를 휴식으로 表示
   const teamRounds = new Set(d.results.concat(d.fixtures || []).filter(m => m[2] === t.team || m[3] === t.team).map(m => m[1]));
   const futureRounds = {};
   (d.fixtures || []).forEach(f => { if (f[1] != null && (!futureRounds[f[1]] || f[0] < futureRounds[f[1]])) futureRounds[f[1]] = f[0]; });
@@ -1676,39 +1676,39 @@ function detailInner(d, t, r) {
     else a.l++;
     return a;
   }, { w: 0, d: 0, l: 0, gf: 0, ga: 0 });
-  return `<section class="team-record" aria-label="${esc(t.team)} 시즌 성적">
-    <div class="team-record-head"><h3>시즌 성적</h3><span>${played.length}경기 기준</span></div>
+  return `<section class="team-record" aria-label="${esc(t.team)} シーズン成績">
+    <div class="team-record-head"><h3>シーズン成績</h3><span>${played.length}試合時点</span></div>
     <div class="team-record-grid">
-      <div class="team-record-stat win"><span>승</span><b>${record.w}</b></div>
-      <div class="team-record-stat draw"><span>무</span><b>${record.d}</b></div>
-      <div class="team-record-stat loss"><span>패</span><b>${record.l}</b></div>
-      <div class="team-record-stat"><span>득점</span><b>${record.gf}</b></div>
-      <div class="team-record-stat"><span>실점</span><b>${record.ga}</b></div>
+      <div class="team-record-stat win"><span>勝利</span><b>${record.w}</b></div>
+      <div class="team-record-stat draw"><span>引き分け</span><b>${record.d}</b></div>
+      <div class="team-record-stat loss"><span>敗戦</span><b>${record.l}</b></div>
+      <div class="team-record-stat"><span>得点</span><b>${record.gf}</b></div>
+      <div class="team-record-stat"><span>失点</span><b>${record.ga}</b></div>
     </div>
   </section>
   <div class="dgrid">
-    <div><h3>남은 경기 ${fx.length}${rests.length ? ` · 휴식 ${rests.length}` : ""}</h3><ul>${sched.length ? sched.map(it => it.rest
+    <div><h3>残り試合 ${fx.length}${rests.length ? ` · 휴식 ${rests.length}` : ""}</h3><ul>${sched.length ? sched.map(it => it.rest
       ? `<li><span><b>휴식</b></span><small>${esc(it.date)} ${it.rd}R</small></li>`
-      : `<li><span>${it.f[2] === t.team ? "홈" : "원정"} · ${esc(it.f[2] === t.team ? it.f[3] : it.f[2])}</span><small>${esc(it.f[0])} ${esc(it.f[1] ? it.f[1] + "R" : "")}</small></li>`).join("") : "<li><small>남은 정규 일정 없음</small></li>"}
-      ${splitPending ? "<li><small>+ 파이널 라운드 5경기 (그룹 확정 후 일정 발표)</small></li>" : ""}</ul></div>
-    <div><h3>최근 5경기</h3><ul>${recent.map(f => `<li><span>${f.home ? "홈" : "원정"} · ${esc(f.opp)} <b>${f.my}-${f.op}</b></span><small>${esc(f.date)}</small></li>`).join("")}</ul></div>
-    <div><h3>추정 전력 (리그 평균 = 1.00)</h3><ul>
-      <li><span>공격력</span><b class="num">${R.att.toFixed(2)}</b></li>
-      <li><span>수비력 <small>(낮을수록 좋음)</small></span><b class="num">${R.def.toFixed(2)}</b></li>
+      : `<li><span>${it.f[2] === t.team ? "ホーム" : "アウェイ"} · ${esc(it.f[2] === t.team ? it.f[3] : it.f[2])}</span><small>${esc(it.f[0])} ${esc(it.f[1] ? it.f[1] + "R" : "")}</small></li>`).join("") : "<li><small>残りのリーグ戦日程はありません</small></li>"}
+      ${splitPending ? "<li><small>+ 最終節5試合（グループ決定後に日程発表）</small></li>" : ""}</ul></div>
+    <div><h3>直近5試合</h3><ul>${recent.map(f => `<li><span>${f.home ? "ホーム" : "アウェイ"} · ${esc(f.opp)} <b>${f.my}-${f.op}</b></span><small>${esc(f.date)}</small></li>`).join("")}</ul></div>
+    <div><h3>推定戦力（リーグ平均＝1.00）</h3><ul>
+      <li><span>攻撃力</span><b class="num">${R.att.toFixed(2)}</b></li>
+      <li><span>守備力 <small>(低いほど良い)</small></span><b class="num">${R.def.toFixed(2)}</b></li>
     </ul></div>
-    <div><h3>최종 순위 분포</h3>
-      <div class="hist">${r.posDist.map((v, i) => `<div class="${i === cur ? "cur" : ""}" style="height:${max ? v / max * 100 : 0}%" title="${i + 1}위 ${(v / total * 100).toFixed(1)}%"></div>`).join("")}</div>
+    <div><h3>最終順位分布</h3>
+      <div class="hist">${r.posDist.map((v, i) => `<div class="${i === cur ? "cur" : ""}" style="height:${max ? v / max * 100 : 0}%" title="${i + 1}位 ${(v / total * 100).toFixed(1)}%"></div>`).join("")}</div>
       <div class="histx">${r.posDist.map((_, i) => `<span>${i + 1}</span>`).join("")}</div>
     </div>
-  </div><div class="team-detail-actions"><button type="button" class="ghost" data-team-page="${esc(t.team)}">팀 상세 페이지 보기 →</button></div>`;
+  </div><div class="team-detail-actions"><button type="button" class="ghost" data-team-page="${esc(t.team)}">チーム詳細ページを見る →</button></div>`;
 }
 
-/* ---------- 라운드 ---------- */
+/* ---------- 節 ---------- */
 const dayNo = d => Math.round(Date.parse(d + "T00:00:00Z") / 864e5);
 const matchKey = m => m[0] + "|" + m[2] + "|" + m[3];
-// 라운드마다 "제때 치른 경기" 목록을 만든다. 라운드 중심 날짜에서 7일 넘게 떨어진 경기는 연기 경기로 보고
-// 그 라운드의 완료 판단에서 뺀다(연기 경기는 실제로 치른 날의 기록에 반영된다).
-// 팀 수가 홀수인 J2 리그는 라운드마다 한 팀이 쉬므로, 라운드의 경기 수는 일정에서 그대로 가져온다.
+// 節마다 "消化試合" 목록을 만든다. 節 중심 날짜에서 7일 넘게 떨어진 경기는 연기 경기로 보고
+// 그 節의 완료 판단에서 뺀다(연기 경기는 実際로 치른 날의 기록에 반영된다).
+// チーム 수가 홀수인 J2リーグ는 節마다 1チーム이 쉬므로, 節의 試合数는 日程에서 그대로 가져온다.
 function roundIndex(d) {
   const all = d.results.filter(r => r[6] !== "P").concat(d.fixtures || []);
   const by = {};
@@ -1719,7 +1719,7 @@ function roundIndex(d) {
     return { rd, keys: main.map(matchKey) };
   });
 }
-// 결과 목록(known) 기준으로 몇 라운드까지 끝났는지, 다음 라운드가 진행 중인지
+// 結果 목록(known) 基準으로 몇 節까지 끝났는지, 다음 節가 進行中인지
 function roundState(rounds, known) {
   const done = new Map(known.map(r => [matchKey(r), r[0]]));
   let last = 0, lastDate = null, partial = false;
@@ -1731,13 +1731,13 @@ function roundState(rounds, known) {
   }
   return { last, lastDate, partial, next: last + 1 };
 }
-// 그날 기록에 들어 있던 결과: 결과 개수를 저장한 기록은 그 개수만큼, 아니면 그날 이전 경기
+// 当日 기록에 들어 있던 結果: 結果 개수를 저장한 기록은 그 개수만큼, 아니면 当日 이전 試合
 function knownAt(d, h, lg) {
   const res = d.results.filter(r => r[6] !== "P");
   const n = h["n_" + lg];
   return n != null ? res.slice(0, n) : res.filter(r => r[0] < h.asOf);
 }
-// 그래프에 쓸 점: 라운드마다 그 라운드가 끝난 상태의 마지막 기록 하나, 맨 끝 기록이 라운드 중간이면 "진행 중" 점
+// 그래프에 쓸 点: 節마다 그 節가 끝난 상태의 마지막 記録 하나, 맨 끝 기록이 節 중간이면 "進行中" 点
 function roundPoints(lg) {
   const d = DATA[lg];
   const hs = HISTORY.filter(h => h[lg]).sort((a, b) => a.asOf < b.asOf ? -1 : 1);
@@ -1752,18 +1752,18 @@ function roundPoints(lg) {
   return out;
 }
 
-/* ---------- 내 팀 ---------- */
+/* ---------- 応援チーム ---------- */
 function renderMySel() {
   const d = DATA[league];
   if (!d) return;
   const teams = d.standings.slice().sort((a, b) => a.rank - b.rank).map(s => s.team);
   if (MY[league] && !teams.includes(MY[league])) MY[league] = "";
-  $("myTeam").innerHTML = `<option value="">선택 안 함</option>` + teams.map(t => `<option value="${esc(t)}"${t === MY[league] ? " selected" : ""}>${esc(t)}</option>`).join("");
+  $("myTeam").innerHTML = `<option value="">未選択</option>` + teams.map(t => `<option value="${esc(t)}"${t === MY[league] ? " selected" : ""}>${esc(t)}</option>`).join("");
 }
 
-/* ---------- 이번 라운드: 빅매치와 "만약에" ---------- */
-// 다음으로 치를 라운드의 남은 경기. 가장 이른 남은 경기부터 일주일 안에 가장 많이 몰린 라운드를 고르고,
-// 그 라운드 기간에 끼어 있는 연기 경기도 함께 넣는다
+/* ---------- 今節: 注目試合와 "もしも分析" ---------- */
+// 다음으로 치를 節의 남은 試合. 最も 이른 남은 경기부터 일주일 안에 最も 많이 몰린 節를 고르고,
+// 그 節 기간에 끼어 있는 연기 경기도 함께 넣는다
 function focusFixtures(d) {
   const fx = (d.fixtures || []).filter(f => f[1] != null).slice().sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : a[2] < b[2] ? -1 : 1);
   if (!fx.length) return { rd: null, list: [] };
@@ -1773,7 +1773,7 @@ function focusFixtures(d) {
   const inRd = fx.filter(f => f[1] === rd), lo = inRd[0][0], hi = inRd.at(-1)[0];
   return { rd, list: fx.filter(f => f[1] === rd || (f[0] >= lo && f[0] <= hi)) };
 }
-// 추적한 경기마다: 결과(홈 승/무/원정 승)별 팀 확률과, 결과에 따라 가장 크게 흔들리는 팀
+// 추적한 경기마다: 結果(ホーム勝利/引き分け/アウェイ勝利)별 チーム 확률과, 결과에 따라 最も 크게 흔들리는 チーム
 function matchEffects(lg) {
   const d = DATA[lg], tr = (SIM.track || {})[lg] || [];
   const exempt = (d.format || {}).noPlayoffTeam;
@@ -1796,19 +1796,19 @@ function matchEffects(lg) {
   }).filter(Boolean);
 }
 const wdlBar = p => `<div class="wdl"><div class="bar"><i style="width:${p[0] * 100}%"></i><i style="width:${p[1] * 100}%"></i><i style="width:${p[2] * 100}%"></i></div>
-  <div class="lab"><span>홈승 ${Math.round(p[0] * 100)}%</span><span>무 ${Math.round(p[1] * 100)}%</span><span>원정승 ${Math.round(p[2] * 100)}%</span></div></div>`;
+  <div class="lab"><span>ホーム勝利 ${Math.round(p[0] * 100)}%</span><span>引き分け ${Math.round(p[1] * 100)}%</span><span>アウェイ勝利 ${Math.round(p[2] * 100)}%</span></div></div>`;
 function effLine(e, f, lg, mine) {
   const v = x => x == null ? "-" : fmtP(x);
-  return `<div class="eff"><span class="who">${mine ? '<span class="star">★</span>' : ""}${teamNameHtml(e.team)} ${ZSHORT[lg][e.k]} 확률</span>
-    <span class="vals"><span>${teamNameHtml(f[2])} 승 <b>${v(e.p[0])}</b></span><span>무 <b>${v(e.p[1])}</b></span><span>${teamNameHtml(f[3])} 승 <b>${v(e.p[2])}</b></span></span></div>`;
+  return `<div class="eff"><span class="who">${mine ? '<span class="star">★</span>' : ""}${teamNameHtml(e.team)} ${ZSHORT[lg][e.k]} 確率</span>
+    <span class="vals"><span>${teamNameHtml(f[2])} 勝利 <b>${v(e.p[0])}</b></span><span>引き分け <b>${v(e.p[1])}</b></span><span>${teamNameHtml(f[3])} 勝利 <b>${v(e.p[2])}</b></span></span></div>`;
 }
 
 function renderCheer() {
   const root = $("cheer"), d = DATA[league], me = MY[league];
   if (!root) return;
-  if (!d || !SIM) { root.innerHTML = `<p class="empty">경기와 시뮬레이션 데이터를 불러오는 중이에요.</p>`; return; }
+  if (!d || !SIM) { root.innerHTML = `<p class="empty">試合データとシミュレーション結果を読み込んでいます。</p>`; return; }
   const goals = CHEER_GOALS[league].filter(g => !(g.key === "safe" && me === (d.format || {}).noPlayoffTeam));
-  if (!me) { root.innerHTML = `<div class="cheer-top"><div><h2>응원 작전실</h2><p class="cheer-intro">내 팀을 위해 이번 라운드에서 어떤 결과를 응원할지 살펴보세요.</p></div></div><div class="notice">먼저 상단의 ‘내 팀’에서 응원 팀을 선택해 주세요.</div>`; return; }
+  if (!me) { root.innerHTML = `<div class="cheer-top"><div><h2>応援作戦室</h2><p class="cheer-intro">応援チームのために、今節どの結果を応援するか確認しましょう。</p></div></div><div class="notice">まず上部の「応援チーム」からチームを選択してください。</div>`; return; }
   if (!goals.some(g => g.key === CHEER_GOAL[league])) CHEER_GOAL[league] = goals[0].key;
   const goal = goals.find(g => g.key === CHEER_GOAL[league]);
   const sourceKey = goal.source || goal.key, baselineRaw = SIM[league][me]?.[sourceKey];
@@ -1826,16 +1826,16 @@ function renderCheer() {
   const top = rows.filter(x => x.best).sort((a, b) => (b.best.delta ?? 0) - (a.best.delta ?? 0))[0];
   CHEER_BEST_SCENARIO[league] = Object.fromEntries(rows.filter(x => x.best).map(x => [x.key, x.best.i]));
   const outcomes = x => [0, 1, 2].map(o => {
-    const label = o === 0 ? x.f[2] + " 승" : o === 1 ? "무승부" : x.f[3] + " 승", p = x.vals[o];
-    const delta = p == null || baseline == null ? "표본 부족" : `${p - baseline >= 0 ? "+" : ""}${(p - baseline).toFixed(1)}%p`;
-    return `<div class="cheer-choice${x.best && x.best.i === o ? " best" : ""}"><b>${esc(label)}</b><small>경기 결과 ${Math.round(x.probs[o] * 100)}%</small><span>${p == null ? "-" : fmtP(p)}</span><small>${delta}</small><button type="button" data-cheer-pick="${o}" data-key="${esc(x.key)}">이 결과로 만약에</button></div>`;
+    const label = o === 0 ? x.f[2] + " 勝利" : o === 1 ? "引き分け" : x.f[3] + " 勝利", p = x.vals[o];
+    const delta = p == null || baseline == null ? "サンプル不足" : `${p - baseline >= 0 ? "+" : ""}${(p - baseline).toFixed(1)}%p`;
+    return `<div class="cheer-choice${x.best && x.best.i === o ? " best" : ""}"><b>${esc(label)}</b><small>試合 結果 ${Math.round(x.probs[o] * 100)}%</small><span>${p == null ? "-" : fmtP(p)}</span><small>${delta}</small><button type="button" data-cheer-pick="${o}" data-key="${esc(x.key)}">この結果で「もしも分析」</button></div>`;
   }).join("");
-  const roundTitle = rows.length ? `${rows[0].f[1]}라운드` : "이번 라운드";
-  root.innerHTML = `<div class="cheer-top"><div><h2>응원 작전실</h2><p class="cheer-intro">${esc(me)} 팬을 위한 ${roundTitle} 응원 가이드. 경기 결과별 목표 확률을 비교해요.</p></div><label>응원 목표 <select id="cheerGoal">${goals.map(g => `<option value="${g.key}"${g.key === goal.key ? " selected" : ""}>${g.label}</option>`).join("")}</select></label></div>
-    ${baseline == null ? "" : `<div class="cheer-summary"><span>현재 ${goal.label} 확률</span><b>${fmtP(baseline)}</b><small>한 경기 결과만 반영한 값입니다. 여러 경기를 고르면 아래 만약에 분석에서 함께 계산할 수 있어요.</small></div>`}
-    ${top ? `<div class="cheer-summary"><span>이번 라운드에서 가장 유리한 단일 결과</span><b>${esc(top.best.i === 0 ? top.f[2] + " 승" : top.best.i === 1 ? "무승부" : top.f[3] + " 승")} · ${fmtP(top.best.v)} (${top.best.delta >= 0 ? "+" : ""}${top.best.delta.toFixed(1)}%p)</b><small>${esc(top.f[2])} vs ${esc(top.f[3])}</small></div>` : ""}
-    ${Object.keys(CHEER_BEST_SCENARIO[league]).length ? `<div class="cheer-bulk-action"><button type="button" class="primary" data-cheer-apply-best>모든 최적 결과를 만약에 적용 (${Object.keys(CHEER_BEST_SCENARIO[league]).length}경기)</button><p>각 경기에서 선택한 응원 목표 확률이 가장 높아지는 결과를 #round 페이지에 한꺼번에 입력합니다. 표본이 부족해 최적 결과를 계산하지 못한 경기는 제외됩니다. 여러 경기의 결과를 각각 최적화한 조합이며, 조합 전체의 최적성을 보장하지는 않습니다.</p></div>` : ""}
-    <div class="cheer-grid">${rows.length ? rows.map(x => `<article class="cheer-card"><h3>${esc(x.f[2])} vs ${esc(x.f[3])}<small>${esc(x.f[0])} · ${x.f[1] ? x.f[1] + "R" : "일정"}</small></h3><div class="cheer-outcomes">${outcomes(x)}</div></article>`).join("") : `<p class="empty">이번 라운드에 표시할 남은 경기가 없어요.</p>`}</div>`;
+  const roundTitle = rows.length ? `${rows[0].f[1]}節` : "今節";
+  root.innerHTML = `<div class="cheer-top"><div><h2>応援作戦室</h2><p class="cheer-intro">${esc(me)}のファン向け${roundTitle}応援ガイドです。試合結果ごとの目標確率を比較します。</p></div><label>応援目標 <select id="cheerGoal">${goals.map(g => `<option value="${g.key}"${g.key === goal.key ? " selected" : ""}>${g.label}</option>`).join("")}</select></label></div>
+    ${baseline == null ? "" : `<div class="cheer-summary"><span>現在 ${goal.label} 確率</span><b>${fmtP(baseline)}</b><small>한 試合 결과만 반영한 값입니다. 여러 경기를 고르면 아래 もしも分析 분석에서 함께 계산할 수 있어요.</small></div>`}
+    ${top ? `<div class="cheer-summary"><span>今節에서 最も 유리한 단일 結果</span><b>${esc(top.best.i === 0 ? top.f[2] + " 勝利" : top.best.i === 1 ? "引き分け" : top.f[3] + " 勝利")} · ${fmtP(top.best.v)} (${top.best.delta >= 0 ? "+" : ""}${top.best.delta.toFixed(1)}%p)</b><small>${esc(top.f[2])} vs ${esc(top.f[3])}</small></div>` : ""}
+    ${Object.keys(CHEER_BEST_SCENARIO[league]).length ? `<div class="cheer-bulk-action"><button type="button" class="primary" data-cheer-apply-best>모든 최적 결과를 もしも分析 적용 (${Object.keys(CHEER_BEST_SCENARIO[league]).length}試合)</button><p>각 경기에서 선택한 応援目標 확률이 最も 높아지는 결과를 #round 페이지에 한꺼번에 입력합니다. 표본이 부족해 최적 결과를 계산하지 못한 경기는 제외됩니다. 여러 경기의 결과를 각각 최적화한 조합이며, 조합 전체의 최적성을 보장하지는 않습니다.</p></div>` : ""}
+    <div class="cheer-grid">${rows.length ? rows.map(x => `<article class="cheer-card"><h3>${esc(x.f[2])} vs ${esc(x.f[3])}<small>${esc(x.f[0])} · ${x.f[1] ? x.f[1] + "R" : "日程"}</small></h3><div class="cheer-outcomes">${outcomes(x)}</div></article>`).join("") : `<p class="empty">今節에 표시할 残り試合はありません。</p>`}</div>`;
   const select = $("cheerGoal"); if (select) select.addEventListener("change", e => { CHEER_GOAL[league] = e.target.value; renderCheer(); });
 }
 function renderMyPreview() {
@@ -1844,13 +1844,13 @@ function renderMyPreview() {
   const me = MY[league], d = DATA[league];
   $("myPreviewRank").textContent = "";
   if (!d || !SIM || !SIM.model || !SIM.model[league]) {
-    $("myPreviewIntro").textContent = "경기 데이터와 예측 결과를 불러오는 중입니다.";
-    root.innerHTML = '<p class="empty">데이터를 불러오는 중입니다.</p>';
+    $("myPreviewIntro").textContent = "試合データと予測結果を読み込んでいます。";
+    root.innerHTML = '<p class="empty">データを読み込んでいます。</p>';
     return;
   }
   if (!me) {
-    $("myPreviewIntro").textContent = "상단의 ‘내 팀’에서 응원 팀을 선택하면 다음 경기 분석이 표시됩니다.";
-    root.innerHTML = '<p class="empty">내 팀이 설정되지 않았습니다. 페이지 상단에서 응원 팀을 선택해 주세요.</p>';
+    $("myPreviewIntro").textContent = "上部の「応援チーム」を選択すると、次の試合分析が表示されます。";
+    root.innerHTML = '<p class="empty">応援チームが設定されていません。ページ上部から選択してください。</p>';
     return;
   }
   const standing = (d.standings || []).find(t => t.team === me);
@@ -1860,11 +1860,11 @@ function renderMyPreview() {
     const home = r[2] === me, mine = home ? Number(r[4]) : Number(r[5]), opp = home ? Number(r[5]) : Number(r[4]);
     return { r: mine > opp ? "W" : mine < opp ? "L" : "D", date:r[0], home, oppName:home?r[3]:r[2], mine, opp };
   });
-  if (standing) $("myPreviewRank").textContent = `현재 ${standing.rank}위 · ${standing.pts}점`;
-  const formHtml = form.length ? form.map(f => `<i class="${f.r}" title="${esc(f.date)} ${f.home ? "홈" : "원정"} vs ${esc(f.oppName)} ${f.mine}-${f.opp}">${f.r === "W" ? "승" : f.r === "D" ? "무" : "패"}</i>`).join("") : '<span class="my-preview-note">확인 가능한 최근 경기 기록이 없습니다.</span>';
+  if (standing) $("myPreviewRank").textContent = `現在 ${standing.rank}位 · ${standing.pts}点`;
+  const formHtml = form.length ? form.map(f => `<i class="${f.r}" title="${esc(f.date)} ${f.home ? "ホーム" : "アウェイ"} vs ${esc(f.oppName)} ${f.mine}-${f.opp}">${f.r === "W" ? "勝利" : f.r === "D" ? "引き分け" : "敗戦"}</i>`).join("") : '<span class="my-preview-note">確認可能な直近の試合記録がありません。</span>';
   if (!fixtures.length) {
-    $("myPreviewIntro").textContent = `${me}의 현재 시즌 일정 기준`;
-    root.innerHTML = `<p>현재 등록된 남은 경기가 없습니다.</p><div class="my-preview-form"><b>최근 5경기</b><span class="form">${formHtml}</span></div><p class="my-preview-note">새 일정이 데이터에 반영되면 다음 경기 프리뷰가 표시됩니다.</p>`;
+    $("myPreviewIntro").textContent = `${me}の現在のシーズン日程を基準`;
+    root.innerHTML = `<p>登録済みの残り試合はありません。</p><div class="my-preview-form"><b>直近5試合</b><span class="form">${formHtml}</span></div><p class="my-preview-note">新しい日程がデータに反映されると、次の試合プレビューが表示されます。</p>`;
     return;
   }
   const f = fixtures[0], home = f[2] === me, opponent = home ? f[3] : f[2];
@@ -1876,13 +1876,13 @@ function renderMyPreview() {
     const raw = E.matchProbs(l, m, model.rho);
     probs = home ? raw : [raw[2], raw[1], raw[0]];
   }
-  const dateText = `${f[0]}${f[1] != null ? ` · ${f[1]}라운드` : ""}`;
-  const labels = ["승리", "무승부", "패배"];
-  const probHtml = probs ? probs.map((p,i) => `<div class="my-preview-prob"><span>${labels[i]}</span><b>${(p*100).toFixed(1)}%</b><i><em style="width:${(p*100).toFixed(2)}%"></em></i></div>`).join("") : '<p class="my-preview-note">이 경기의 승·무·패 확률을 계산할 수 없습니다.</p>';
+  const dateText = `${f[0]}${f[1] != null ? ` · ${f[1]}節` : ""}`;
+  const labels = ["勝利", "引き分け", "敗戦"];
+  const probHtml = probs ? probs.map((p,i) => `<div class="my-preview-prob"><span>${labels[i]}</span><b>${(p*100).toFixed(1)}%</b><i><em style="width:${(p*100).toFixed(2)}%"></em></i></div>`).join("") : '<p class="my-preview-note">この試合の勝敗確率を計算できません。</p>';
   const strongest = probs ? Math.max(...probs) : 0;
-  const outlook = probs ? (strongest === probs[0] ? "모델上 가장 유력한 결과는 승리입니다." : strongest === probs[1] ? "모델上 가장 유력한 결과는 무승부입니다." : "모델上 가장 유력한 결과는 패배입니다.") : "";
-  $("myPreviewIntro").textContent = `${me}의 가장 가까운 남은 경기`;
-  root.innerHTML = `<div class="my-preview-match"><div class="my-preview-side"><span class="my-preview-team">${teamNameHtml(f[2])}</span><span class="my-preview-sub">${home ? "내 팀 · 홈" : "상대 팀 · 홈"}</span></div><span class="my-preview-vs">VS</span><div class="my-preview-side"><span class="my-preview-team">${teamNameHtml(f[3])}</span><span class="my-preview-sub">${home ? "상대 팀 · 원정" : "내 팀 · 원정"}</span></div></div><div class="my-preview-meta">${esc(dateText)} · ${home ? "홈 경기" : "원정 경기"}</div><div class="my-preview-probs">${probHtml}</div><div class="my-preview-form"><b>최근 5경기</b><span class="form">${formHtml}</span></div><p class="my-preview-note">${esc(outlook)} 확률은 현재 등록된 경기 결과로 추정한 모델 예측이며 실제 결과를 보장하지 않습니다.</p>`;
+  const outlook = probs ? (strongest === probs[0] ? "モデルで最も有力な結果は勝利です。" : strongest === probs[1] ? "モデルで最も有力な結果は引き分けです。" : "モデルで最も有力な結果は敗戦です。") : "";
+  $("myPreviewIntro").textContent = `${me}の次の試合`;
+  root.innerHTML = `<div class="my-preview-match"><div class="my-preview-side"><span class="my-preview-team">${teamNameHtml(f[2])}</span><span class="my-preview-sub">${home ? "応援チーム · ホーム" : "相手チーム・ホーム"}</span></div><span class="my-preview-vs">対</span><div class="my-preview-side"><span class="my-preview-team">${teamNameHtml(f[3])}</span><span class="my-preview-sub">${home ? "相手チーム・アウェイ" : "応援チーム · アウェイ"}</span></div></div><div class="my-preview-meta">${esc(dateText)} · ${home ? "ホーム試合" : "アウェイ試合"}</div><div class="my-preview-probs">${probHtml}</div><div class="my-preview-form"><b>直近5試合</b><span class="form">${formHtml}</span></div><p class="my-preview-note">${esc(outlook)}確率は登録済みの試合結果に基づくモデル予測で、実際の結果を保証するものではありません。</p>`;
 }
 
 function renderRound() {
@@ -1890,27 +1890,27 @@ function renderRound() {
   const d = DATA[league], me = MY[league];
   const foc = focusFixtures(d);
   const splitPending = league === "k1" && (d.format || {}).split && !d.results.some(r => r[6]) && !(d.fixtures || []).some(f => f[4]);
-  $("roundTitle").textContent = foc.rd ? `${foc.rd}라운드 프리뷰` : "이번 라운드 프리뷰";
+  $("roundTitle").textContent = foc.rd ? `${foc.rd}節プレビュー` : "今節のプレビュー";
   const ms = matchEffects(league).sort((a, b) => a.f[0] < b.f[0] ? -1 : a.f[0] > b.f[0] ? 1 : 0);
   if (!ms.length) {
     $("roundMeta").textContent = "";
-    $("bigMatches").innerHTML = `<p>${foc.rd ? "경기별 계산을 기다리는 중이에요." : splitPending ? "정규 라운드가 모두 끝났어요. 파이널 라운드 일정이 발표되면 여기에 경기가 나옵니다." : "남은 경기가 없어요."}</p>`;
+    $("bigMatches").innerHTML = `<p>${foc.rd ? "試合ごとの計算を待っています。" : splitPending ? "レギュラーシーズンが終了しました。最終節の日程発表後、ここに試合が表示されます。" : "残り試合はありません。"}</p>`;
     $("matchList").innerHTML = ""; renderWhatif(); return;
   }
   const dates = ms.map(m => m.f[0]).sort();
-  $("roundMeta").textContent = `${dates[0].slice(5).replace("-", ".")}~${dates.at(-1).slice(5).replace("-", ".")} · ${ms.length}경기`;
-  // 빅매치: 결과에 따라 어떤 팀의 확률이든 가장 크게 바뀌는 경기 3개
+  $("roundMeta").textContent = `${dates[0].slice(5).replace("-", ".")}~${dates.at(-1).slice(5).replace("-", ".")} · ${ms.length}試合`;
+  // 注目試合: 결과에 따라 어떤 팀의 확률이든 最も 크게 바뀌는 試合 3개
   const hot = ms.filter(m => m.lev >= 2).sort((a, b) => b.lev - a.lev).slice(0, 3);
   $("bigMatches").innerHTML = hot.length ? hot.map((m, i) => {
     const show = m.effects.filter(e => e.swing >= 1.5).slice(0, 2);
     const mine = me && !show.some(e => e.team === me) && m.effects.find(e => e.team === me && e.swing >= 1);
-    return `<article class="bigc"><span class="tag">빅매치 ${i + 1}</span>
-      <h3>${teamNameHtml(m.f[2])} <span class="vs-inline">vs</span> ${teamNameHtml(m.f[3])}<small>${m.f[0].slice(5).replace("-", ".")} (${dow(m.f[0])}) · ${esc(m.f[2])} 홈</small></h3>
+    return `<article class="bigc"><span class="tag">注目試合 ${i + 1}</span>
+      <h3>${teamNameHtml(m.f[2])} <span class="vs-inline">対</span> ${teamNameHtml(m.f[3])}<small>${m.f[0].slice(5).replace("-", ".")} (${dow(m.f[0])}) · ${esc(m.f[2])} ホーム</small></h3>
       ${wdlBar(m.probs)}
       ${show.map(e => effLine(e, m.f, league, e.team === me)).join("")}${mine ? effLine(mine, m.f, league, true) : ""}
     </article>`;
-  }).join("") : `<p>이번 라운드에는 결과에 따라 우승·승격·잔류 확률이 크게 흔들리는 경기가 없어요.</p>`;
-  // 경기 목록: 결과를 골라 "만약에" 계산
+  }).join("") : `<p>今節は、結果によって優勝・昇格・残留確率が大きく変動する試合はありません。</p>`;
+  // 試合 목록: 결과를 골라 "もしも分析" 計算
   const picks = PICKS[league], hotKeys = new Set(hot.map(m => m.key));
   $("matchList").innerHTML = ms.map(m => {
     const p = picks[m.key], f = m.f;
@@ -1918,16 +1918,16 @@ function renderRound() {
     const btn = (o, lab) => `<button type="button" data-pick="${o}" data-key="${esc(m.key)}" aria-pressed="${p === o}">${esc(lab)}</button>`;
     return `<div class="mrow${p != null ? " picked" : ""}" data-key="${esc(m.key)}">
       <span class="mdate">${f[0].slice(5).replace("-", ".")} (${dow(f[0])})${f[1] !== foc.rd ? ` · ${f[1]}R 연기` : ""}</span>
-      <span class="mteams">${teamNameHtml(f[2])} <small>vs</small> ${teamNameHtml(f[3])}${hotKeys.has(m.key) ? '<span class="hot">빅매치</span>' : ""}</span>
+      <span class="mteams">${teamNameHtml(f[2])} <small>対</small> ${teamNameHtml(f[3])}${hotKeys.has(m.key) ? '<span class="hot">注目試合</span>' : ""}</span>
       ${wdlBar(m.probs)}
-      <span class="pick" role="group" aria-label="${esc(f[2])} 대 ${esc(f[3])} 결과 선택">${btn(0, f[2] + " 승")}${btn(1, "무")}${btn(2, f[3] + " 승")}</span>
-      ${mineE ? `<span class="mnote"><span class="star">★</span>${esc(me)} ${ZSHORT[league][mineE.k]}: ${teamNameHtml(f[2])} 승 <b>${fmtP(mineE.p[0] ?? 0)}</b> · 무 <b>${fmtP(mineE.p[1] ?? 0)}</b> · ${teamNameHtml(f[3])} 승 <b>${fmtP(mineE.p[2] ?? 0)}</b></span>` : ""}
+      <span class="pick" role="group" aria-label="${esc(f[2])} 対 ${esc(f[3])} の結果を選択">${btn(0, f[2] + " 勝利")}${btn(1, "引き分け")}${btn(2, f[3] + " 勝利")}</span>
+      ${mineE ? `<span class="mnote"><span class="star">★</span>${esc(me)} ${ZSHORT[league][mineE.k]}: ${teamNameHtml(f[2])} 勝利 <b>${fmtP(mineE.p[0] ?? 0)}</b> · 引き分け <b>${fmtP(mineE.p[1] ?? 0)}</b> · ${teamNameHtml(f[3])} 勝利 <b>${fmtP(mineE.p[2] ?? 0)}</b></span>` : ""}
     </div>`;
   }).join("");
   renderWhatif();
 }
 
-// 고른 결과를 실제로 치른 것처럼 넣은 문서 (확정·불가 판정용, 점수는 1-0 / 0-0 / 0-1로 둔다)
+// 고른 결과를 実際로 치른 것처럼 넣은 문서 (確定・可能性なし 판정용, スコア는 1-0 / 0-0 / 0-1로 둔다)
 function hypoDoc(d, picks) {
   const sc = [[1, 0], [0, 0], [0, 1]];
   const add = (d.fixtures || []).filter(f => picks[fkey(f)] != null).map(f => { const [x, y] = sc[picks[fkey(f)]]; return [f[0], f[1], f[2], f[3], x, y, f[4]]; });
@@ -1946,9 +1946,9 @@ function hypoDoc(d, picks) {
 function renderWhatif() {
   const picks = PICKS[league], n = Object.keys(picks).length;
   $("whatifRun").disabled = !n || whatifRunning || simRunning || !SIM;
-  $("whatifRun").textContent = whatifRunning ? "계산 중…" : "고른 결과로 다시 계산";
+  $("whatifRun").textContent = whatifRunning ? "計算中…" : "選択した結果で再計算";
   $("whatifClear").disabled = !n && !(WHATIF && WHATIF.lg === league);
-  $("whatifNote").textContent = n ? `${n}경기 결과를 골랐어요.` : "경기마다 결과를 고르면, 그 결과를 넣고 남은 시즌을 다시 계산해 지금과 비교해 드려요.";
+  $("whatifNote").textContent = n ? `${n}試合結果を選択しました。` : "各試合の結果を選ぶと、その結果を反映して残りシーズンを再計算し、現在の予測と比較します。";
   const w = WHATIF && WHATIF.lg === league ? WHATIF : null;
   if (!w) { $("whatif").innerHTML = ""; return; }
   const d = DATA[league], base = SIM[league], sc = w.sim[league], zones = ZONES[league], me = MY[league];
@@ -1961,22 +1961,22 @@ function renderWhatif() {
   );
   const virtualRank = Object.fromEntries(virtualRows.map((t, i) => [t.team, i + 1]));
   const byKey = Object.fromEntries((d.fixtures || []).map(f => [fkey(f), f]));
-  const assumed = Object.entries(w.picks).map(([k, o]) => { const f = byKey[k]; return f ? (o === 1 ? `${f[2]}-${f[3]} 무승부` : `${o === 0 ? f[2] : f[3]} 승 (vs ${o === 0 ? f[3] : f[2]})`) : null; }).filter(Boolean);
+  const assumed = Object.entries(w.picks).map(([k, o]) => { const f = byKey[k]; return f ? (o === 1 ? `${f[2]}-${f[3]} 引き分け` : `${o === 0 ? f[2] : f[3]} 勝利 (vs ${o === 0 ? f[3] : f[2]})`) : null; }).filter(Boolean);
   // 이 결과면 새로 확정되거나 불가능해지는 것
   const order = league === "k1" ? ["champ", "acle", "finalA"] : ["champ", "auto", "top6"];
   const chips = [];
   st.forEach(t => {
     const b = decB[t.team], s = decS[t.team];
     const sureK = order.find(k => s[k].sure && !b[k].sure);
-    if (sureK) chips.push([`${t.team} ${ZSHORT[league][sureK]} 확정`, ""]);
+    if (sureK) chips.push([`${t.team} ${ZSHORT[league][sureK]} 確定`, ""]);
     const outK = order.slice().reverse().find(k => s[k].out && !b[k].out);
-    if (outK) chips.push([`${t.team} ${ZSHORT[league][outK]} 불가`, "bad"]);
-    if (league === "k1" && t.team !== exempt && s.po.out && !b.po.out) chips.push([`${t.team} 잔류 확정`, ""]);
+    if (outK) chips.push([`${t.team} ${ZSHORT[league][outK]} 可能性なし`, "bad"]);
+    if (league === "k1" && t.team !== exempt && s.po.out && !b.po.out) chips.push([`${t.team} 残留確定`, ""]);
   });
   const val = (v, N, s) => s.sure ? 100 : s.out ? 0 : v / N * 100;
   const rows = st.map(t => {
     const cells = zones.map(z => {
-      if (z.key === "po" && t.team === exempt) return { html: '<span class="mg off">해당 없음</span>', dv: 0 };
+      if (z.key === "po" && t.team === exempt) return { html: '<span class="mg off">該当なし</span>', dv: 0 };
       const bs = decB[t.team][z.key], ss = decS[t.team][z.key];
       const bv = val(base[t.team][z.key], SIM.N, bs), sv = val(sc[t.team][z.key], w.sim.N, ss), dv = sv - bv;
       const good = z.danger ? dv < 0 : dv > 0;
@@ -1987,19 +1987,19 @@ function renderWhatif() {
   const shown = rows.filter(r => r.big || r.t.team === me), hidden = rows.length - shown.length;
   $("whatif").innerHTML = `
     ${w.picks && JSON.stringify(w.picks) !== JSON.stringify(picks) ? `<div class="notice">고른 결과가 바뀌었어요. 아래는 이전 선택으로 계산한 결과입니다. 다시 계산을 눌러 주세요.</div>` : ""}
-    <p><b>가정:</b> ${assumed.map(esc).join(", ")}. 아래 가상 순위표는 선택한 경기 결과를 반영한 현재 순위이며, 승·무·패만 선택할 수 있어 득점은 승리 1-0·무승부 0-0으로 단순 가정합니다. 순위는 승점 → 득실차 → 득점 → 기존 순위 순으로 정렬합니다.</p>
-    <h3 class="sub">가상 순위표</h3>
-    <div class="tablebox"><table><thead><tr><th>가상 순위</th><th>팀</th><th>현재 순위</th><th>경기</th><th>득점</th><th>실점</th><th>득실차</th><th>승점</th><th>순위 변화</th></tr></thead><tbody>
-      ${virtualRows.map((t, i) => { const old = st.find(x => x.team === t.team); const delta = old.rank - (i + 1); return `<tr${t.team === me ? ' class="mine"' : ""}><td><b>${i + 1}</b></td><td>${t.team === me ? '<span class="star">★</span>' : ""}${teamNameHtml(t.team)}</td><td>${old.rank}위</td><td>${t.p}</td><td>${t.gf}</td><td>${t.ga}</td><td>${t.gf - t.ga > 0 ? "+" : ""}${t.gf - t.ga}</td><td><b>${t.pts}</b></td><td>${delta > 0 ? `▲ ${delta}` : delta < 0 ? `▼ ${Math.abs(delta)}` : "—"}</td></tr>`; }).join("")}
+    <p><b>前提：</b> ${assumed.map(esc).join(", ")}. 以下の仮想順位表は選択した試合結果を反映した現在順位であり, 勝敗のみ選択できるため、スコアは勝利を1-0、引き分けを0-0と仮定しています。 順位は勝ち点→得失点差→得点→現在順位の順で並べます。</p>
+    <h3 class="sub">仮想順位表</h3>
+    <div class="tablebox"><table><thead><tr><th>仮想順位</th><th>チーム</th><th>現在 順位</th><th>試合</th><th>得点</th><th>失点</th><th>得失点差</th><th>勝ち点</th><th>順位変動</th></tr></thead><tbody>
+      ${virtualRows.map((t, i) => { const old = st.find(x => x.team === t.team); const delta = old.rank - (i + 1); return `<tr${t.team === me ? ' class="mine"' : ""}><td><b>${i + 1}</b></td><td>${t.team === me ? '<span class="star">★</span>' : ""}${teamNameHtml(t.team)}</td><td>${old.rank}位</td><td>${t.p}</td><td>${t.gf}</td><td>${t.ga}</td><td>${t.gf - t.ga > 0 ? "+" : ""}${t.gf - t.ga}</td><td><b>${t.pts}</b></td><td>${delta > 0 ? `▲ ${delta}` : delta < 0 ? `▼ ${Math.abs(delta)}` : "—"}</td></tr>`; }).join("")}
     </tbody></table></div>
-    <p class="meta">선택한 결과에 따른 순위표입니다. 실제 경기 점수와 리그의 세부 동률 규정에 따라 최종 순위는 달라질 수 있습니다.</p>
-    <h3 class="sub">시즌 전망 확률 변화</h3>
-    <p>지금 확률 → 선택한 결과를 반영했을 때의 확률입니다(같은 시드로 ${w.sim.N.toLocaleString()}번).</p>
+    <p class="meta">選択した結果を反映した順位表です。実際のスコアや細かな順位決定規定により最終順位は異なる場合があります。</p>
+    <h3 class="sub">シーズン予測確率の変化</h3>
+    <p>現在の確率と、選択した結果を反映した確率です（同じシードで${w.sim.N.toLocaleString()}回）。</p>
     ${chips.length ? `<div class="changes">${chips.map(([t, c]) => `<span class="chip${c ? " " + c : ""}">${esc(t)}</span>`).join("")}</div>` : ""}
-    <div class="tablebox"><table><thead><tr><th>팀</th>${zones.map(z => `<th>${z.label}</th>`).join("")}</tr></thead><tbody>
-      ${shown.map(r => `<tr${r.t.team === me ? ' class="mine"' : ""}><td>${r.t.team === me ? '<span class="star">★</span>' : ""}<b>${teamNameHtml(r.t.team)}</b> <small class="rank">${r.t.rank}위</small></td>${r.cells.map(c => `<td>${c.html}</td>`).join("")}</tr>`).join("")}
+    <div class="tablebox"><table><thead><tr><th>チーム</th>${zones.map(z => `<th>${z.label}</th>`).join("")}</tr></thead><tbody>
+      ${shown.map(r => `<tr${r.t.team === me ? ' class="mine"' : ""}><td>${r.t.team === me ? '<span class="star">★</span>' : ""}<b>${teamNameHtml(r.t.team)}</b> <small class="rank">${r.t.rank}位</small></td>${r.cells.map(c => `<td>${c.html}</td>`).join("")}</tr>`).join("")}
     </tbody></table></div>
-    ${hidden ? `<p>확률 변화가 0.5%p 미만인 ${hidden}팀은 생략했어요.</p>` : ""}`;
+    ${hidden ? `<p>確率 변화가 0.5%p 미만인 ${hidden}팀은 생략했어요.</p>` : ""}`;
 }
 async function runWhatif() {
   const picks = Object.assign({}, PICKS[league]), lg = league;
@@ -2011,14 +2011,14 @@ async function runWhatif() {
       done => { $("progressBar").style.width = (done / NSIM * 100) + "%"; });
     WHATIF = { lg, picks, sim };
   } catch (err) {
-    $("notice").hidden = false; $("notice").textContent = "다시 계산 중 오류가 났어요: " + err.message;
+    $("notice").hidden = false; $("notice").textContent = "再計算中にエラーが発生しました：" + err.message;
   }
   whatifRunning = false; $("progress").hidden = true;
   renderWhatif();
   if (WHATIF && WHATIF.lg === league) $("whatif").scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-/* ---------- 최종 순위 분포 ---------- */
+/* ---------- 最終順位分布 ---------- */
 function renderDist() {
   const d = DATA[league], res = SIM[league], n = d.standings.length, me = MY[league];
   const st = d.standings.slice().sort((a, b) => a.rank - b.rank);
@@ -2027,21 +2027,21 @@ function renderDist() {
   const rows = st.map(t => {
     const ps = res[t.team].posDist.map(v => v / SIM.N * 100);
     const mode = ps.indexOf(Math.max(...ps));
-    const probs = ps.map((p, i) => `<div class="dist-prob${i === t.rank - 1 ? " current" : ""}"><span>${i + 1}위</span><b>${p.toFixed(1)}%</b><i><em style="width:${Math.max(0, Math.min(100, p))}%"></em></i></div>`).join("");
+    const probs = ps.map((p, i) => `<div class="dist-prob${i === t.rank - 1 ? " current" : ""}"><span>${i + 1}位</span><b>${p.toFixed(1)}%</b><i><em style="width:${Math.max(0, Math.min(100, p))}%"></em></i></div>`).join("");
     return {
       desktop: `<tr${t.team === me ? ' class="mine"' : ""}><td class="tn">${t.team === me ? "★ " : ""}${teamNameHtml(t.team)}</td>${ps.map((p, i) => {
         const a = p > 0 ? Math.min(1, Math.sqrt(p / 100)) : 0;
-        return `<td class="h${sep(i)}${i === t.rank - 1 ? " cur" : ""}" style="background:color-mix(in srgb, var(--bar) ${(a * 100).toFixed(0)}%, transparent);${a > 0.55 ? "color:#fff" : ""}" title="${esc(t.team)} ${i + 1}위 ${p.toFixed(1)}%">${cell(p)}</td>`;
-      }).join("")}<td class="mode">${mode + 1}위 <small>${fmtP(ps[mode])}</small></td></tr>`,
-      mobile: `<details class="dist-team"${t.team === me ? " open" : ""}><summary><span class="dist-team-name">${t.team === me ? "★ " : ""}${teamNameHtml(t.team)}<small>현재 ${t.rank}위</small></span><span class="dist-team-mode"><b>최빈 순위 ${mode + 1}위</b><small>${fmtP(ps[mode])}</small></span><span class="dist-chevron" aria-hidden="true">⌄</span></summary><div class="dist-detail"><p class="dist-detail-title">순위별 확률 <span>현재 순위는 테두리로 표시</span></p><div class="dist-prob-grid">${probs}</div></div></details>`
+        return `<td class="h${sep(i)}${i === t.rank - 1 ? " cur" : ""}" style="background:color-mix(in srgb, var(--bar) ${(a * 100).toFixed(0)}%, transparent);${a > 0.55 ? "color:#fff" : ""}" title="${esc(t.team)} ${i + 1}位 ${p.toFixed(1)}%">${cell(p)}</td>`;
+      }).join("")}<td class="mode">${mode + 1}位 <small>${fmtP(ps[mode])}</small></td></tr>`,
+      mobile: `<details class="dist-team"${t.team === me ? " open" : ""}><summary><span class="dist-team-name">${t.team === me ? "★ " : ""}${teamNameHtml(t.team)}<small>現在 ${t.rank}位</small></span><span class="dist-team-mode"><b>最頻順位 ${mode + 1}位</b><small>${fmtP(ps[mode])}</small></span><span class="dist-chevron" aria-hidden="true">⌄</span></summary><div class="dist-detail"><p class="dist-detail-title">順位別確率 <span>現在順位は枠線で表示</span></p><div class="dist-prob-grid">${probs}</div></div></details>`
     };
   });
-  $("dist").innerHTML = `<div class="dist-desktop"><div class="tablebox"><table class="heat"><thead><tr><th class="tn">팀</th>${st.map((_, i) => `<th class="${sep(i)}">${i + 1}위</th>`).join("")}<th>가장 유력</th></tr></thead><tbody>${rows.map(r => r.desktop).join("")}</tbody></table></div></div>
-  <div class="dist-mobile"><p class="dist-mobile-hint">팀을 누르면 해당 팀의 전체 순위별 확률을 확인할 수 있습니다.</p>${rows.map(r => r.mobile).join("")}</div>
-  <p class="dist-desktop-note">칸이 진할수록 그 순위로 끝날 확률이 높습니다. 테두리 칸은 현재 순위, 굵은 세로선은 ${league === "k1" ? "ACL권(참고)(2위)·상위 6위(6위)·강등권(18~20위)" : "자동 승격(2위)·PO권(6위)"} 경계입니다. 0.5% 미만은 비워 두었어요.</p>`;
+  $("dist").innerHTML = `<div class="dist-desktop"><div class="tablebox"><table class="heat"><thead><tr><th class="tn">チーム</th>${st.map((_, i) => `<th class="${sep(i)}">${i + 1}位</th>`).join("")}<th>最有力</th></tr></thead><tbody>${rows.map(r => r.desktop).join("")}</tbody></table></div></div>
+  <div class="dist-mobile"><p class="dist-mobile-hint">チームを選ぶと、全順位の確率を確認できます。</p>${rows.map(r => r.mobile).join("")}</div>
+  <p class="dist-desktop-note">色が濃いほど、その順位で終える確率が高くなります。枠線は現在順位、太い縦線は目標順位の境界です。0.5%未満は空欄です。</p>`;
 }
-/* ---------- 남은 일정 난이도 ---------- */
-// 리그 평균 전력 팀이 이 팀의 남은 일정을 대신 치른다면 경기당 얻을 기대 승점. 낮을수록 어려운 일정
+/* ---------- 残り日程の難易度 ---------- */
+// 리그 平均 戦力 팀이 이 팀의 남은 日程을 대신 치른다면 1試合あたり 얻을 기대 勝ち点. 낮을수록 어려운 日程
 function renderSched() {
   const d = DATA[league], m = SIM.model[league], away = 1 / m.home, me = MY[league];
   const ep = (l, mm, side) => { const p = E.matchProbs(l, mm, m.rho); return side === 0 ? 3 * p[0] + p[1] : 3 * p[2] + p[1]; };
@@ -2053,30 +2053,30 @@ function renderSched() {
       const home = f[2] === t.team, o = home ? f[3] : f[2], R = m.R[o];
       if (home) { ease += ep(m.mu * m.home * R.def, m.mu * away * R.att, 0); own += ep(m.mu * m.home * my.att * R.def, m.mu * away * R.att * my.def, 0); }
       else { ease += ep(m.mu * m.home * R.att, m.mu * away * R.def, 2); own += ep(m.mu * m.home * R.att * my.def, m.mu * away * my.att * R.def, 2); }
-      return `${o}${home ? "(홈)" : "(원정)"}`;
+      return `${o}${home ? "(ホーム)" : "(アウェイ)"}`;
     });
     return { t, n: fx.length, e: fx.length ? ease / fx.length : null, own, opps };
   });
   const has = rows.filter(r => r.n).sort((a, b) => a.e - b.e), none = rows.filter(r => !r.n);
-  if (!has.length) { $("sched").innerHTML = "<p>남은 정규 일정이 없어요.</p>"; return; }
+  if (!has.length) { $("sched").innerHTML = "<p>レギュラーシーズンの残り日程はありません。</p>"; return; }
   const lo = has[0].e, hi = has.at(-1).e, span = hi - lo || 1;
-  const tier = i => i < has.length / 3 ? ["어려움", "var(--loss)"] : i < has.length * 2 / 3 ? ["보통", "var(--warn)"] : ["쉬움", "var(--win)"];
+  const tier = i => i < has.length / 3 ? ["難しい", "var(--loss)"] : i < has.length * 2 / 3 ? ["普通", "var(--warn)"] : ["易しい", "var(--win)"];
   const splitPending = league === "k1" && (d.format || {}).split && !d.results.some(r => r[6]) && !(d.fixtures || []).some(f => f[4]);
   $("sched").innerHTML = `<div class="sched">${has.map((r, i) => {
     const [tl, tc] = tier(i), w = 12 + 88 * (hi - r.e) / span;
     return `<div class="srow${r.t.team === me ? " mine" : ""}">
       <span class="rank">${r.t.rank}</span>
       <span>${r.t.team === me ? '<span class="star">★</span>' : ""}<span class="tname">${teamNameHtml(r.t.team, "tname")}</span></span>
-      <span class="sbar" title="경기당 ${r.e.toFixed(2)}점 (리그 평균 팀 기준)"><b style="width:${w}%;background:${tc}"></b></span>
-      <span class="sv"><span class="tier" style="background:${tc}">${tl}</span>경기당 <b>${r.e.toFixed(2)}</b>점 · ${r.n}경기</span>
-      <span class="opps">${r.opps.map(esc).join(" · ")} — 이 팀 전력으로 예상 +${r.own.toFixed(1)}점</span>
+      <span class="sbar" title="1試合あたり${r.e.toFixed(2)}点（リーグ平均戦力のチームを基準）"><b style="width:${w}%;background:${tc}"></b></span>
+      <span class="sv"><span class="tier" style="background:${tc}">${tl}</span>1試合あたり <b>${r.e.toFixed(2)}</b>点 · ${r.n}試合</span>
+      <span class="opps">${r.opps.map(esc).join(" · ")} — 이 チーム戦力으로 予想 +${r.own.toFixed(1)}点</span>
     </div>`;
   }).join("")}</div>
-  ${none.length ? `<p>남은 경기 없음: ${none.map(r => esc(r.t.team)).join(", ")}</p>` : ""}
-  <p>막대가 길수록 어려운 일정입니다. "경기당"은 리그 평균 전력 팀이 이 일정을 대신 치른다면 얻을 기대 승점으로, 상대 전력과 홈·원정을 함께 반영합니다(낮을수록 어려움). "예상"은 이 팀의 실제 전력으로 남은 경기에서 얻을 기대 승점입니다.${league === "k2" ? " J2 리그는 휴식 라운드 때문에 팀마다 남은 경기 수가 다를 수 있어요." : ""}${splitPending ? " 파이널 라운드 5경기는 그룹이 정해진 뒤 반영됩니다." : ""}</p>`;
+  ${none.length ? `<p>남은 試合 없음: ${none.map(r => esc(r.t.team)).join(", ")}</p>` : ""}
+  <p>バーが長いほど厳しい日程です。 「1試合あたり」は リーグ平均戦力のチームがこの日程を代わりに戦った場合の期待勝ち点で, 対戦相手の戦力とホーム・アウェイを考慮し、数値が低いほど厳しい日程です。 「予想」はチームの実際の戦力で残り試合から得られる期待勝ち点です。${league === "k2" ? " J2リーグは20チーム制のため、各チーム38試合です。" : ""}${splitPending ? " 最終ラウンドの日程はグループ決定後に反映されます。" : ""}</p>`;
 }
 
-/* ---------- 확률 추이 ---------- */
+/* ---------- 確率の推移 ---------- */
 function renderChart() {
   const zones = ZONES[league];
   if (!zones.some(z => z.key === metric)) metric = "champ";
@@ -2086,60 +2086,60 @@ function renderChart() {
   const rounds = [...new Set(allPts.map(p => p.rd))].sort((a, b) => a - b);
   if (rounds.length) {
     if (!rounds.includes(TREND_START[league])) TREND_START[league] = rounds[0];
-    startSelect.innerHTML = rounds.map(rd => `<option value="${rd}"${rd === TREND_START[league] ? " selected" : ""}>${rd}라운드부터</option>`).join("");
+    startSelect.innerHTML = rounds.map(rd => `<option value="${rd}"${rd === TREND_START[league] ? " selected" : ""}>${rd}節から</option>`).join("");
     startSelect.disabled = false;
   } else {
-    startSelect.innerHTML = `<option value="1">1라운드부터</option>`;
+    startSelect.innerHTML = `<option value="1">第1節から</option>`;
     startSelect.disabled = true;
   }
   const pts = allPts.filter(p => p.rd >= TREND_START[league]);
-  if (!pts.length) { $("trendTeams").innerHTML = ""; $("chart").innerHTML = `<p>아직 저장된 기록이 없어요. ${STANDALONE ? "매일 자동 갱신 때 그날의 확률이 기록되고" : "매일 데이터가 갱신된 뒤 이 페이지를 열면 그날의 확률이 기록되고"}, 라운드가 끝날 때마다 추이에 점이 하나씩 생깁니다.</p>`; return; }
-  // 한 번이라도 1% 이상이었던 팀 중 최근 값이 높은 6팀
+  if (!pts.length) { $("trendTeams").innerHTML = ""; $("chart").innerHTML = `<p>保存済みの記録はありません。 ${STANDALONE ? "毎日の自動更新時にその日の確率を記録し" : "データ更新後にこのページを開くとその日の確率を記録し"}, 節が終わるごとに推移グラフに点が追加されます。</p>`; return; }
+  // 한 번이라도 1% 이상이었던 チーム 중 直近 값이 높은 6チーム
   const teams = {};
   pts.forEach(p => Object.entries(p.h[league]).forEach(([t, v]) => { if (v[metric] != null) teams[t] = Math.max(teams[t] || 0, v[metric]); }));
   const lastVals = pts.at(-1).h[league];
-  const allTeams = (DATA[league]?.standings || []).slice().sort((a, b) => a.rank - b.rank).map(r => r.team); // 칩은 현재 순위 순
+  const allTeams = (DATA[league]?.standings || []).slice().sort((a, b) => a.rank - b.rank).map(r => r.team); // 칩은 現在 順位 순
   const me = MY[league];
   const manual = !!TSEL[league];
   let pick;   // 칸 번호 = 색 번호. 직접 선택에서는 빈 칸(null)이 있을 수 있다
   if (manual) {
-    // 직접 고른 팀: 이번 리그에 없는 팀 이름(저장값이 오래된 경우)은 걷어낸다
+    // 직접 고른 チーム: 이번 리그에 없는 チーム 이름(저장값이 오래된 경우)은 걷어낸다
     pick = TSEL[league].map(t => allTeams.includes(t) ? t : null);
   } else {
-    // 자동: 위에서 구한 상위 6팀 + 내 팀
+    // 自動: 位에서 구한 上位6位チーム + 応援チーム
     pick = Object.keys(teams).filter(t => teams[t] >= 1).sort((a, b) => (lastVals[b]?.[metric] || 0) - (lastVals[a]?.[metric] || 0)).slice(0, 6);
-    // 내 팀은 확률이 낮아도 항상 그린다
+    // 応援チーム은 확률이 낮아도 항상 그린다
     if (me && teams[me] != null && !pick.includes(me)) { if (pick.length >= 6) pick.pop(); pick.push(me); }
     AUTO_PICK[league] = pick.slice();
   }
-  // 팀 선택 칩: 선택된 팀은 그래프 선과 같은 색 점을 단다
+  // チーム 選択 칩: 선택된 팀은 그래프 선과 같은 색 点을 단다
   const nSel = pick.filter(Boolean).length;
   $("trendTeams").innerHTML = allTeams.map(t => {
     const slot = pick.indexOf(t), on = slot >= 0;
     return `<button type="button" class="tchip" data-trend-team="${esc(t)}" aria-pressed="${on}"${on ? ` style="--c:var(--s${slot + 1})"` : ""}><i></i>${t === me ? "★ " : ""}${esc(t)}</button>`;
   }).join("")
-    + (nSel ? `<button type="button" class="ghost tchip" id="trendClear">전체 해제</button>` : "")
-    + (manual ? `<button type="button" class="ghost tchip" id="trendAuto">자동 선택으로</button>` : "")
-    + `<span class="tmeta">${trendFull ? `최대 ${TREND_MAX}팀까지 고를 수 있어요. 먼저 하나를 해제해 주세요.` : manual ? `${nSel}/${TREND_MAX}팀 선택` : "자동: 확률 높은 팀과 내 팀 · 눌러서 직접 고르기"}</span>`;
+    + (nSel ? `<button type="button" class="ghost tchip" id="trendClear">すべて解除</button>` : "")
+    + (manual ? `<button type="button" class="ghost tchip" id="trendAuto">自動選択に戻す</button>` : "")
+    + `<span class="tmeta">${trendFull ? `최대 ${TREND_MAX}팀까지 고를 수 있어요. 먼저 하나를 해제해 주세요.` : manual ? `${nSel}/${TREND_MAX}チーム 選択` : "自動：確率上位チームと応援チーム・クリックして手動選択"}</span>`;
   trendFull = false;
   // 직접 선택에서 전부 해제했으면 그래프 대신 안내를 보여준다
-  if (!nSel) { $("chart").innerHTML = `<p>그래프에 그릴 팀을 위에서 골라 주세요.</p>`; return; }
-  // 화면 폭에 맞춰 그려서 휴대폰에서도 글자가 작아지지 않게 한다. 라운드는 같은 간격으로 놓는다
+  if (!nSel) { $("chart").innerHTML = `<p>グラフに表示するチームを上から選択してください。</p>`; return; }
+  // 화면 폭에 맞춰 그려서 휴대폰에서도 글자가 작아지지 않게 한다. 節는 같은 간격으로 놓는다
   const W = Math.max(340, Math.min(720, $("chart").clientWidth || 720)), L = 40, Rr = W < 500 ? 100 : 110, T = 12;
   const x = i => pts.length === 1 ? (L + (W - Rr)) / 2 : L + i / (pts.length - 1) * (W - Rr - L);
-  // 점마다 라운드와 날짜를 단다. 좁으면 비스듬히 눕히고, 그래도 겹칠 만큼 촘촘하면 몇 개씩 건너뛴다(마지막 점은 항상)
+  // 点마다 節와 날짜를 단다. 좁으면 비스듬히 눕히고, 그래도 겹칠 만큼 촘촘하면 몇 개씩 건너뛴다(마지막 点은 항상)
   const gap = pts.length > 1 ? (W - Rr - L) / (pts.length - 1) : 999;
   const rotate = gap < 64, step = gap < 13 ? Math.ceil(13 / gap) : 1;
   const B = rotate ? 88 : 40, H = (W < 500 ? 220 : 260) + (rotate ? 52 : 12);
   const y = v => T + (1 - v / 100) * (H - T - B);
   const md = d => d.slice(5).replace("-", ".");
-  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(zones.find(z => z.key === metric).label)} 라운드별 확률 추이"><g class="grid">`;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(zones.find(z => z.key === metric).label)}の節ごとの確率推移"><g class="grid">`;
   [0, 25, 50, 75, 100].forEach(v => { s += `<line x1="${L}" x2="${W - Rr}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${v}%</text>`; });
   s += `</g>`;
   pts.forEach((p, i) => {
     if (i % step && i !== pts.length - 1) return;
     const lx = x(i), base = H - B;
-    const top = p.rd + "R", bottom = p.progress ? "진행 중" : md(p.date);
+    const top = p.rd + "R", bottom = p.progress ? "進行中" : md(p.date);
     s += `<line x1="${lx}" x2="${lx}" y1="${base}" y2="${base + 4}" stroke="var(--muted)"/>`;
     s += rotate
       ? `<text x="${lx}" y="${base + 16}" text-anchor="end" transform="rotate(-55 ${lx} ${base + 16})"${p.progress ? ' style="fill:var(--point)"' : ""}>${top} · ${bottom}</text>`
@@ -2152,7 +2152,7 @@ function renderChart() {
     const arr = pts.map((p, j) => ({ j, p, v: p.h[league][t]?.[metric] })).filter(a => a.v != null)
       .map(a => ({ xy: [x(a.j), y(a.v)], bf: !!a.p.h.backfill, prog: a.p.progress }));
     const fin = arr.filter(a => !a.prog), prog = arr.find(a => a.prog);
-    // 지난 결과로 다시 계산한 구간은 점선, 그날 실제로 기록한 구간은 실선, 진행 중 라운드로 가는 선은 짧은 점선
+    // 지난 결과로 다시 계산한 구간은 点선, 当日 実際로 기록한 구간은 실선, 進行中 節로 가는 선은 짧은 点선
     const lastBf = fin.map(a => a.bf).lastIndexOf(true);
     const dashed = lastBf >= 0 ? fin.slice(0, lastBf + 2) : [], solid = fin.slice(Math.max(0, lastBf + 1));
     const line = (ps, dash) => ps.length > 1 ? `<polyline fill="none" stroke="${c}" stroke-width="${t === me ? 3.4 : 2.2}" stroke-linejoin="round"${dash ? ` stroke-dasharray="${dash}"` : ""} points="${ps.map(a => a.xy.join(",")).join(" ")}"/>` : "";
@@ -2167,26 +2167,26 @@ function renderChart() {
   labels.sort((a, b) => a.y - b.y);
   for (let i = 1; i < labels.length; i++) if (labels[i].y - labels[i - 1].y < 14) labels[i].y = labels[i - 1].y + 14;
   labels.forEach(l => { s += `<text class="lab" x="${W - Rr + 8}" y="${l.y + 4}" style="fill:${l.c}">${l.t === me ? "★ " : ""}${esc(l.t)} ${l.v != null ? fmtP(l.v) : ""}</text>`; });
-  // 마우스를 올린 라운드를 표시할 세로선과 강조 점 자리 (처음에는 숨김)
+  // 마우스를 올린 節를 표시할 세로선과 강조 点 자리 (처음에는 숨김)
   s += `<line class="hline" x1="0" x2="0" y1="${T}" y2="${H - B}" stroke="var(--muted)" stroke-dasharray="3 3" visibility="hidden"/><g class="hdots"></g>`;
   s += `</svg>`;
-  // 툴팁용 데이터: 라운드마다 가로 위치(x), 제목, 선택한 팀들의 확률(높은 순)과 세로 위치(y)
+  // 툴팁용 データ: 節마다 가로 位치(x), 제목, 선택1チーム들의 確率(높은 순)과 세로 位치(y)
   const hov = pts.map((p, j) => ({
     x: x(j),
-    head: `${p.rd}라운드 · ${p.progress ? "진행 중" : md(p.date)}`,
+    head: `${p.rd}節 · ${p.progress ? "進行中" : md(p.date)}`,
     rows: pick.map((t, i) => ({ t, i, v: t ? p.h[league][t]?.[metric] : null }))
-      .filter(r => r.t && r.v != null)            // 선택한 팀 중 이 라운드 값이 있는 팀만
+      .filter(r => r.t && r.v != null)            // 선택한 チーム 중 이 節 값이 있는 팀만
       .sort((a, b) => b.v - a.v)
       .map(r => ({ ...r, y: y(r.v) }))
   }));
   const metricLabel = zones.find(z => z.key === metric).label.replace(/ \(.*\)/, "");
-  const notes = ["라운드가 끝날 때마다 점이 하나씩 생기고, 아래 날짜는 그 라운드의 마지막 경기일입니다. 연기 경기는 실제로 치른 날 이후 점에 반영됩니다. 그래프 위에 마우스를 올리거나(휴대폰은 손가락으로 짚으면) 그 라운드의 팀별 확률이 보입니다."];
-  // 직접 고른 팀 중 이 지표 값이 한 번도 기록되지 않은 팀(예: 해당 없는 지표)은 선이 없으므로 알려 준다
+  const notes = ["各節の終了時に点が追加され、下の日付はその節の最終試合日です。延期試合は実際に開催された後の点に反映されます。グラフにカーソルを合わせる（スマートフォンではタップする）と、その節のチーム別確率を確認できます。"];
+  // 직접 고른 チーム 중 이 지표 값이 한 번도 기록되지 않은 チーム(예: 해당 없는 지표)은 선이 없으므로 알려 준다
   const noData = pick.filter(t => t && teams[t] == null);
-  if (noData.length) notes.push(`${noData.join(", ")}은(는) 이 지표의 기록이 없어 선이 그려지지 않습니다.`);
-  if (league === "k2") notes.push("J2 리그는 17팀이라 라운드마다 한 팀이 쉽니다. 쉬는 팀도 다른 팀 결과에 따라 확률이 바뀝니다.");
-  if (pts.some(p => p.progress)) notes.push("맨 끝 빈 점(진행 중)은 아직 끝나지 않은 라운드의 현재 값입니다.");
-  if (pts.some(p => p.h.backfill)) notes.push("점선과 빈 점은 지난 경기 결과만으로 그 시점을 다시 계산한 값이고, 실선과 채운 점은 그날 실제로 기록한 값입니다.");
+  if (noData.length) notes.push(`${noData.join(", ")}は、この指標の記録がないため線が表示されません。`);
+  if (league === "k2") notes.push("J2リーグは20チーム制で各チーム38試合を行います。");
+  if (pts.some(p => p.progress)) notes.push("最後の白抜きの点（進行中）は、終了していない節の現在値です。");
+  if (pts.some(p => p.h.backfill)) notes.push("点線と白抜きの点は、その時点までの試合結果だけで再計算した値です。実線と塗りつぶしの点は当日に記録した値です。");
   const box = $("chart");
   box.innerHTML = s + `<p>${notes.join(" ")}</p>`;
 
@@ -2198,23 +2198,23 @@ function renderChart() {
   box.appendChild(tip);
   const hide = () => { tip.hidden = true; line.setAttribute("visibility", "hidden"); dots.innerHTML = ""; };
   const show = ev => {
-    const r = svg.getBoundingClientRect(), k = r.width / W;   // 화면 픽셀 → 그래프 좌표 비율
+    const r = svg.getBoundingClientRect(), k = r.width / W;   // 화면 픽셀 → 그래프 좌표 率
     const sx = (ev.clientX - r.left) / k;                     // 포인터의 그래프 가로 좌표
     // 그래프 영역(축 ~ 오른쪽 이름표 앞) 밖이면 숨긴다
     if (sx < L - 12 || sx > W - Rr + 12) { hide(); return; }
-    // 가장 가까운 라운드 찾기
+    // 最も 가까운 節 찾기
     let best = 0;
     hov.forEach((h, i) => { if (Math.abs(h.x - sx) < Math.abs(hov[best].x - sx)) best = i; });
     const h = hov[best];
-    // 세로선과 팀별 강조 점
+    // 세로선과 팀별 강조 点
     line.setAttribute("x1", h.x); line.setAttribute("x2", h.x); line.setAttribute("visibility", "visible");
     dots.innerHTML = h.rows.map(q => `<circle cx="${h.x}" cy="${q.y}" r="5" fill="var(--s${q.i + 1})" stroke="var(--surface)" stroke-width="1.5"/>`).join("");
-    // 툴팁 내용: 라운드·날짜, 지표 이름, 팀별 확률
+    // 툴팁 내용: 節·日付, 지표 이름, 팀별 確率
     tip.innerHTML = `<b>${esc(h.head)}</b><span class="tmetric">${esc(metricLabel)}</span>`
       + (h.rows.length ? h.rows.map(q => `<div class="trow"><i style="background:var(--s${q.i + 1})"></i><span>${q.t === me ? "★ " : ""}${esc(q.t)}</span><em>${fmtP(q.v)}</em></div>`).join("")
-                       : `<span class="tmetric">이 라운드 기록이 없어요</span>`);
+                       : `<span class="tmetric">この節の記録はありません</span>`);
     tip.hidden = false;
-    // 위치: 세로선 오른쪽에 두고, 오른쪽 끝에 닿으면 왼쪽으로 뒤집는다
+    // 位치: 세로선 오른쪽에 두고, 오른쪽 끝에 닿으면 왼쪽으로 뒤집는다
     const br = box.getBoundingClientRect();
     const px = r.left - br.left + h.x * k, py = r.top - br.top + T * k;
     const left = px + 14 + tip.offsetWidth > box.clientWidth ? px - 14 - tip.offsetWidth : px + 14;
@@ -2233,32 +2233,32 @@ function renderBacktest() {
   const m = BT.matches;
   const imp = (1 - m.ll / m.llBase) * 100, impB = (1 - m.br / m.brBase) * 100;
   const pc = v => (v * 100).toFixed(1) + "%";
-  let h = `<h3 style="margin:0;font-size:15px">경기 하나하나 맞히기</h3>
-    <p>2025·2026시즌 J1 리그·2 ${m.n.toLocaleString()}경기를, 경기 당일 이전 결과만으로 다시 예측해 실제 결과와 비교했습니다. 기준선은 "그때까지 리그의 홈승·무승부·원정승 비율을 그대로 쓰는 예측"입니다.</p>
+  let h = `<h3 style="margin:0;font-size:15px">試合ごとの予測</h3>
+    <p>2025・2026年のJ1・J2 ${m.n.toLocaleString()}試合について、試合当日までの結果のみで予測し、実際の結果と比較しました。基準値は「それまでのリーグ全体のホーム勝利・引き分け・アウェイ勝利の比率を使う予測」です。</p>
     <div class="kpis">
-      <div class="kpi"><span>로그 손실 (낮을수록 좋음)</span><b>${m.ll.toFixed(3)} <small class="${imp > 0 ? "ok" : "bad"}">기준선 ${m.llBase.toFixed(3)} 대비 ${imp > 0 ? imp.toFixed(1) + "% 개선" : (-imp).toFixed(1) + "% 악화"}</small></b></div>
-      <div class="kpi"><span>브라이어 점수 (낮을수록 좋음)</span><b>${m.br.toFixed(3)} <small class="${impB > 0 ? "ok" : "bad"}">기준선 ${m.brBase.toFixed(3)} 대비 ${impB.toFixed(1)}% ${impB > 0 ? "개선" : "악화"}</small></b></div>
-      <div class="kpi"><span>무승부 비율 예측 / 실제</span><b>${pc(m.drawPred)} / ${pc(m.drawAct)}</b></div>
-      <div class="kpi"><span>홈 승리 비율 예측 / 실제</span><b>${pc(m.homePred)} / ${pc(m.homeAct)}</b></div>
+      <div class="kpi"><span>ログ損失（低いほど良い）</span><b>${m.ll.toFixed(3)} <small class="${imp > 0 ? "ok" : "bad"}">基準値${m.llBase.toFixed(3)}と比べて ${imp > 0 ? imp.toFixed(1) + "%改善" : (-imp).toFixed(1) + "%悪化"}</small></b></div>
+      <div class="kpi"><span>ブライアスコア（低いほど良い）</span><b>${m.br.toFixed(3)} <small class="${impB > 0 ? "ok" : "bad"}">基準値${m.brBase.toFixed(3)}と比べて ${impB.toFixed(1)}% ${impB > 0 ? "改善" : "悪化"}</small></b></div>
+      <div class="kpi"><span>引き分け率（予測 / 実際）</span><b>${pc(m.drawPred)} / ${pc(m.drawAct)}</b></div>
+      <div class="kpi"><span>ホーム勝率（予測 / 実際）</span><b>${pc(m.homePred)} / ${pc(m.homeAct)}</b></div>
     </div>
-    <div class="tablebox"><table><thead><tr><th>예측한 홈 승리 확률</th><th>경기 수</th><th>예측 평균</th><th>실제 홈 승리 비율</th></tr></thead><tbody>
+    <div class="tablebox"><table><thead><tr><th>予測ホーム勝率</th><th>試合数</th><th>予測平均</th><th>実際のホーム勝率</th></tr></thead><tbody>
       ${m.buckets.map((b, i) => b.n ? `<tr><td>${i * 20}~${i * 20 + 20}%</td><td class="num">${b.n}</td><td class="num">${pc(b.pred)}</td><td class="num">${pc(b.act)}</td></tr>` : "").join("")}
     </tbody></table></div>`;
   const s = BT.seasons.find(x => x.league === league);
   if (s) {
     const n = s.teams.length;
     const cats = league === "k1"
-      ? [["우승", r => r === 1, d => d[0]], ["상위 6", r => r <= 6, d => d.slice(0, 6).reduce((a, b) => a + b, 0)], ["최하위", r => r === n, d => d[n - 1]]]
-      : [["우승", r => r === 1, d => d[0]], ["상위 2", r => r <= 2, d => d[0] + d[1]], ["상위 5", r => r <= 5, d => d.slice(0, 5).reduce((a, b) => a + b, 0)]];
+      ? [["優勝", r => r === 1, d => d[0]], ["上位6位", r => r <= 6, d => d.slice(0, 6).reduce((a, b) => a + b, 0)], ["最下位", r => r === n, d => d[n - 1]]]
+      : [["優勝", r => r === 1, d => d[0]], ["上位2位", r => r <= 2, d => d[0] + d[1]], ["上位5位", r => r <= 5, d => d.slice(0, 5).reduce((a, b) => a + b, 0)]];
     let bModel = 0, bBase = 0;
     const rows = s.teams.map((t, i) => ({ t, i, act: s.actualRank[i], cut: s.cutRank[i], pts: s.cutPts[i], d: s.posDist[i] })).sort((a, b) => a.act - b.act);
     rows.forEach(r => cats.forEach(([, f, g]) => { const o = f(r.act) ? 1 : 0; bModel += (g(r.d) - o) ** 2; bBase += ((f(r.cut) ? 1 : 0) - o) ** 2; }));
     const tot = n * cats.length;
-    h += `<h3 style="margin:8px 0 0;font-size:15px">${s.season}시즌 ${league === "k1" ? "J1 리그" : "J2 리그"}를 ${s.cutoff} 시점에서 예측했다면</h3>
-      <p>그날까지의 결과만으로 남은 ${s.remaining}경기${league === "k1" ? "와 파이널 라운드" : ""}를 ${s.N.toLocaleString()}번 시뮬레이션한 확률과 실제 최종 순위입니다. 브라이어 점수는 모델 ${(bModel / tot).toFixed(3)}, "그날 순위가 그대로 간다" 기준선 ${(bBase / tot).toFixed(3)}입니다(낮을수록 좋음).</p>
-      <div class="tablebox"><table><thead><tr><th>팀</th><th>그날 순위</th><th>그날 승점</th>${cats.map(c => `<th>${c[0]} 확률</th>`).join("")}<th>실제 순위</th></tr></thead><tbody>
+    h += `<h3 style="margin:8px 0 0;font-size:15px">${s.season}シーズン${league === "k1" ? "J1リーグ" : "J2リーグ"}を${s.cutoff}時点で予測した場合</h3>
+      <p>その日までの結果のみで残り${s.remaining}試合${league === "k1" ? "と最終節" : ""}を${s.N.toLocaleString()}回シミュレーションした確率と実際の最終順位です。 ブライアスコアはモデル${(bModel / tot).toFixed(3)}、 "その時点の順位が変わらないとする予測" 基準値は${(bBase / tot).toFixed(3)}です（低いほど良い）。</p>
+      <div class="tablebox"><table><thead><tr><th>チーム</th><th>当日の順位</th><th>当日の勝ち点</th>${cats.map(c => `<th>${c[0]} 確率</th>`).join("")}<th>実際の順位</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td><b>${esc(r.t)}</b></td><td class="num">${r.cut}</td><td class="num">${r.pts}</td>${cats.map(([, f, g]) => { const p = g(r.d) * 100; const hit = f(r.act); return `<td class="num${hit ? " ok" : ""}">${fmtP(p)}${hit ? " ✓" : ""}</td>`; }).join("")}<td class="num"><b>${r.act}</b></td></tr>`).join("")}
-      </tbody></table></div><p>✓ 표시는 실제로 그 결과가 나온 팀입니다.</p>`;
+      </tbody></table></div><p>✓は実際にその順位になったチームを示します。</p>`;
   }
   $("backtest").innerHTML = h;
 }
@@ -2271,12 +2271,12 @@ async function runSim(seed) {
   $("rerun").disabled = true;
   $("progress").hidden = false; $("progressBar").style.width = "0";
   WHATIF = null;
-  // 다음 라운드 경기는 결과별로 따로 세어 빅매치 계산에 쓴다 (난수 순서는 그대로라 숫자는 바뀌지 않는다)
+  // 다음 節 경기는 결과별로 따로 세어 注目試合 계산에 쓴다 (난수 순서는 그대로라 숫자는 바뀌지 않는다)
   const track = { k1: focusFixtures(DATA.k1).list.map(fkey), k2: focusFixtures(DATA.k2).list.map(fkey) };
   try {
     SIM = await call({ type: "current", d1: DATA.k1, d2: DATA.k2, N: NSIM, seed, opts: { track } }, done => { $("progressBar").style.width = (done / NSIM * 100) + "%"; });
   } catch (err) {
-    $("notice").hidden = false; $("notice").textContent = "계산 중 오류가 났어요: " + err.message;
+    $("notice").hidden = false; $("notice").textContent = "計算中にエラーが発生しました：" + err.message;
   }
   simRunning = false;
   $("progress").hidden = true; $("rerun").disabled = false;
@@ -2289,7 +2289,7 @@ function onData() {
   const key = defaultSeed() + ":" + DATA.k1.updatedAt + DATA.k2.updatedAt;
   if (key === simKey) return;
   simKey = key; customSeed = false;
-  // 이미 치른 경기는 "만약에" 선택에서 뺀다
+  // 이미 치른 경기는 "もしも分析" 선택에서 뺀다
   ["k1", "k2"].forEach(lg => {
     const live = new Set((DATA[lg].fixtures || []).map(fkey));
     Object.keys(PICKS[lg]).forEach(k => { if (!live.has(k)) delete PICKS[lg][k]; });
@@ -2313,17 +2313,17 @@ async function saveHistory() {
   try {
     const ref = db.doc("history/" + asOf);
     const snap = await ref.get();
-    // n_k1, n_k2: 이 기록에 들어간 경기 결과 수. 그래프가 몇 라운드까지 끝난 시점인지 판단할 때 쓴다
+    // n_k1, n_k2: 이 기록에 들어간 試合 結果 수. 그래프가 몇 節까지 끝난 시点인지 판단할 때 쓴다
     const nRes = d => d.results.filter(r => r[6] !== "P").length;
     if (!snap.exists) await ref.set({ asOf, N: SIM.N, n_k1: nRes(DATA.k1), n_k2: nRes(DATA.k2), k1: pack("k1"), k2: pack("k2") });
-  } catch { /* 기록 실패는 화면에 영향 없음 */ }
+  } catch { /* 記録 실패는 화면에 영향 없음 */ }
 }
 
 let btStarted = false;
 async function runBacktest() {
   if (btStarted || !DATA.h1 || !DATA.h2 || !DATA.k1 || !DATA.k2) return;
   btStarted = true;
-  $("btStatus").textContent = "검증 계산 중…";
+  $("btStatus").textContent = "検証計算中…";
   const md = DATA.k1.asOf.slice(5);
   try {
     BT = await call({
@@ -2331,9 +2331,9 @@ async function runBacktest() {
       docs: [DATA.h1, DATA.h2, DATA.k1, DATA.k2],
       seasons: [{ doc: DATA.h1, cutoff: DATA.h1.season + "-" + md }, { doc: DATA.h2, cutoff: DATA.h2.season + "-" + md }],
     });
-    $("btStatus").textContent = `${DATA.h1.season}시즌 전체와 ${DATA.k1.season}시즌 현재까지 데이터로 검증`;
+    $("btStatus").textContent = `${DATA.h1.season}シーズン全試合と${DATA.k1.season}シーズンの現時点までのデータで検証`;
   } catch (err) {
-    $("btStatus").textContent = "검증 계산 실패: " + err.message;
+    $("btStatus").textContent = "検証計算に失敗しました：" + err.message;
   }
   render();
 }
@@ -2371,8 +2371,8 @@ document.addEventListener("click", e => {
   else if (b.id === "rerun") { customSeed = true; runSim((Math.random() * 2 ** 32) >>> 0); }
   else if (b.dataset.metric) { metric = b.dataset.metric; renderChart(); }
   else if (b.id === "trendClear") clearTrendTeams();
-  else if (b.id === "trendAuto") { TSEL[league] = null; saveTrendSel(); renderChart(); }   // 자동 선택으로 되돌리기
-  else if (b.dataset.trendTeam != null) toggleTrendTeam(b.dataset.trendTeam);              // 팀 칩 선택/해제
+  else if (b.id === "trendAuto") { TSEL[league] = null; saveTrendSel(); renderChart(); }   // 自動選択に戻す 되돌리기
+  else if (b.dataset.trendTeam != null) toggleTrendTeam(b.dataset.trendTeam);              // チーム 칩 選択/해제
   else if (b.dataset.pick != null) {
     const k = b.dataset.key, v = Number(b.dataset.pick), P = PICKS[league];
     if (P[k] === v) delete P[k]; else P[k] = v;
@@ -2381,7 +2381,7 @@ document.addEventListener("click", e => {
   else if (b.id === "whatifRun") runWhatif();
   else if (b.id === "whatifClear") { PICKS[league] = {}; if (WHATIF && WHATIF.lg === league) WHATIF = null; renderRound(); }
   else if (b.dataset.cheerPick != null) { PICKS[league][b.dataset.key] = Number(b.dataset.cheerPick); goPage("round"); renderRound(); }
-  else if (b.hasAttribute("data-cheer-apply-best")) { const scenario = CHEER_BEST_SCENARIO[league] || {}; if (!Object.keys(scenario).length) { alert("적용할 수 있는 최적 결과가 없습니다."); return; } PICKS[league] = { ...scenario }; goPage("round"); renderRound(); }
+  else if (b.hasAttribute("data-cheer-apply-best")) { const scenario = CHEER_BEST_SCENARIO[league] || {}; if (!Object.keys(scenario).length) { alert("適用できる最適な結果がありません。"); return; } PICKS[league] = { ...scenario }; goPage("round"); renderRound(); }
   else if (b.dataset.teamPage) { selectedTeamPage = b.dataset.teamPage; goPage("team"); renderTeamPage(); }
   else if (b.dataset.goPage) goPage(b.dataset.goPage);
   else if (b.dataset.team) { openTeam = openTeam === b.dataset.team ? null : b.dataset.team; render(); }
@@ -2406,7 +2406,7 @@ $("lmb").addEventListener("click", e => {
 });
 window.addEventListener("hashchange", () => { showPage(); window.scrollTo(0, 0); });
 window.addEventListener("popstate", () => { showPage(); window.scrollTo(0, 0); });
-/* ---------- LMB 접기(PC)와 로고 홈 이동 ---------- */
+/* ---------- LMB 접기(PC)와 로고 ホーム 이동 ---------- */
 const LMB_KEY = "kl-odds-lmb-collapsed";   // 접힘 상태를 이 브라우저에 저장
 // on=true면 접고, false면 편다. save=true면 localStorage에 기억한다
 function setLmbCollapsed(on, save) {
@@ -2414,21 +2414,21 @@ function setLmbCollapsed(on, save) {
   const b = $("lmbCollapse");
   if (b) {
     b.textContent = on ? "»" : "«";
-    b.setAttribute("aria-label", on ? "메뉴 펴기" : "메뉴 접기");
-    b.title = on ? "메뉴 펴기" : "메뉴 접기";
+    b.setAttribute("aria-label", on ? "メニューを展開" : "メニューを折りたたむ");
+    b.title = on ? "メニューを展開" : "メニューを折りたたむ";
     b.setAttribute("aria-expanded", String(!on));
   }
   if (save) { try { localStorage.setItem(LMB_KEY, on ? "1" : "0"); } catch {} }
   // 본문 폭이 바뀌므로 추이 차트는 애니메이션이 끝난 뒤 다시 그린다
   setTimeout(() => { if (SIM && currentPage() === "trend") renderChart(); }, 230);
 }
-// 홈(root)으로: 주소의 #해시를 지우고 첫 화면(순위표)을 보여준다
+// ホーム(root)으로: 주소의 #해시를 지우고 첫 화면(順位表)을 보여준다
 function goHome() {
   if (location.hash) history.pushState(null, "", location.pathname + location.search);
   showPage();
   window.scrollTo(0, 0);
 }
-// 로고(사이드바·상단 제목)를 그냥 클릭하면 새로고침 없이 홈으로. Ctrl/⌘/Shift 클릭이나 휠 클릭은 브라우저 기본 동작(새 탭)에 맡긴다
+// 로고(사이드바·상단 제목)를 그냥 클릭하면 새로고침 없이 ホームへ. Ctrl/⌘/Shift 클릭이나 휠 클릭은 브라우저 기본 동작(새 탭)에 맡긴다
 document.addEventListener("click", e => {
   const a = e.target.closest("a.brand, a.home-link");
   if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
@@ -2447,7 +2447,7 @@ document.addEventListener("keydown", e => {
   if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); tr.click(); }
 });
 
-/* ---------- 데이터 ---------- */
+/* ---------- データ ---------- */
 (async () => {
   const fail = msg => { $("tbody").innerHTML = `<tr><td class="empty" colspan="16">${esc(msg)}</td></tr>`; $("cards").innerHTML = `<p class="empty">${esc(msg)}</p>`; $("asOf").textContent = "-"; };
   if (!window.claude || !window.claude.use) {
@@ -2456,26 +2456,26 @@ document.addEventListener("keydown", e => {
     try {
       const get = n => fetch("data/" + n + ".json", { cache: "no-cache" }).then(r => r.ok ? r.json() : null).catch(() => null);
       const [k1, k2, h1, h2, hist] = await Promise.all(["k1", "k2", "k1-2025", "k2-2025", "history"].map(get));
-      if (!k1 || !k2) return fail("데이터 파일(data/k1.json, data/k2.json)을 찾지 못했어요.");
+      if (!k1 || !k2) return fail("データファイル（data/k1.json、data/k2.json）が見つかりません。");
       HISTORY = Array.isArray(hist) ? hist : [];
       DATA.h1 = h1; DATA.h2 = h2; DATA.k1 = k1; DATA.k2 = k2;
-      if (!h1 || !h2) $("btStatus").textContent = "지난 시즌 데이터가 없어 검증을 건너뜁니다";
+      if (!h1 || !h2) $("btStatus").textContent = "過去シーズンのデータがないため検証をスキップします";
       onData();
-    } catch { fail("데이터 파일을 불러오지 못했어요."); }
+    } catch { fail("データファイルを読み込めませんでした。"); }
     return;
   }
   db = await claude.use("db");
-  if (!db) return fail("데이터를 불러올 수 없어요. claude.ai에 로그인한 상태에서 열어 주세요.");
+  if (!db) return fail("データを読み込めません。claude.aiにログインした状態で開いてください。");
   claude.use("user").then(u => u && u.isOwner()).then(v => { isOwner = !!v; if (isOwner) saveHistory(); }).catch(() => {});
   [["k1", "leagues/k1"], ["k2", "leagues/k2"]].forEach(([k, path]) => db.doc(path).onSnapshot(snap => {
-    if (!snap.exists) { fail("아직 저장된 데이터가 없어요. 다음 자동 갱신 때 채워집니다."); return; }
+    if (!snap.exists) { fail("保存済みデータがありません。次回の自動更新後に反映されます。"); return; }
     DATA[k] = snap.data();
     onData();
-  }, () => fail("데이터 연결이 끊겼어요. 페이지를 새로 고쳐 주세요.")));
+  }, () => fail("データ接続が切れました。ページを再読み込みしてください。")));
   Promise.all([db.doc("seasons/k1-2025").get(), db.doc("seasons/k2-2025").get()]).then(([a, b]) => {
     if (a.exists && b.exists) { DATA.h1 = a.data(); DATA.h2 = b.data(); if (SIM) runBacktest(); }
-    else $("btStatus").textContent = "지난 시즌 데이터가 없어 검증을 건너뜁니다";
-  }).catch(() => { $("btStatus").textContent = "지난 시즌 데이터를 불러오지 못했어요"; });
+    else $("btStatus").textContent = "過去シーズンのデータがないため検証をスキップします";
+  }).catch(() => { $("btStatus").textContent = "過去シーズンのデータを読み込めませんでした"; });
   db.collection("history").orderBy("asOf").onSnapshot(q => {
     HISTORY = q.docs.map(x => x.data());
     renderChart();
